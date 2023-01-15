@@ -1,0 +1,48 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		name=plot1,
+		xlabel={$f\,\mathrm{[Hz]}$},
+		ylabel={$E_i\,\mathrm{[a.u.]}$},
+		font = \scriptsize,
+		width=0.98\textwidth,
+		height=0.6\textwidth,
+		ytick pos=left,
+		xtick pos=bottom,
+		ymode=log,
+		xmode=log,
+		line width = 0.85pt,
+		xmax=300,
+		xmin=10,
+		ymin=1e-7,
+        ymax=500,
+        xtick={10,15,35,60,100,160,250},
+        log x ticks with fixed point,
+        legend style ={
+                at={(0.01,0.99)}, 
+                anchor=north west,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=3,
+                font=\scriptsize
+            },
+		]
+        \draw[line width = 0.55pt] (axis cs:70.7,1e-9) -- (axis cs:70.7,1e3) node [left,anchor=east] at (axis cs:70.7,0.5e-6) {$f_{1}$};
+        \draw[line width = 0.55pt,dashed] (axis cs:138.551,1e-9) -- (axis cs:138.551,1e3) node [left,anchor=east] at (axis cs:138.551,1.5e2) {$f_{2}$};
+        \draw[line width = 0.55pt,dashdotted] (axis cs:213,1e-9) -- (axis cs:213,1e3) node [left,anchor=east] at (axis cs:213,1.5e2) {$f_{3}$};
+        
+        
+		\addplot [color=blue,mark=none,smooth] table [x expr=\thisrow{f}, y expr = 1e3*\thisrow{eta0}^2]{\myGraphs/lamVKStreet/scaledEtas0-7Re4815PP.dat};\label{eta0}
+        \addlegendentry{$\hat{\eta}_{1}$};
+		\addplot [color=red,mark=none,smooth] table [x expr=\thisrow{f}, y expr = 1e3*\thisrow{eta2}^2]{\myGraphs/lamVKStreet/scaledEtas0-7Re4815PP.dat};\label{eta2}
+        \addlegendentry{$\hat{\eta}_{3}$};
+        \addplot [color=green!70!black,mark=none,smooth] table [x expr=\thisrow{f}, y expr = 1e3*\thisrow{eta4}^2]{\myGraphs/lamVKStreet/scaledEtas0-7Re4815PP.dat};\label{eta4}
+        \addlegendentry{$\hat{\eta}_{5}$};
+        \addplot [color=brown,mark=none,smooth] table [x expr=\thisrow{f}, y expr = 1e3*\thisrow{eta6}^2]{\myGraphs/lamVKStreet/scaledEtas0-7Re4815PP.dat};\label{eta6}
+        \addlegendentry{$\hat{\eta}_{7}$};
+        \addplot [color=black,mark=none,smooth] table [x expr=\thisrow{f}, y expr = 1e3*\thisrow{sumEtaSq}]{\myGraphs/lamVKStreet/scaledEtas0-7Re4815PP.dat};\label{etaS}
+        \addlegendentry{$\sum_{j=1}^{8}\hat{\eta}_{j}$};
+        \addplot [color=gray,mark=none,smooth] table [x expr=\thisrow{f}, y expr = (\thisrow{spct}^2)/2]{\myGraphs/lamVKStreet/probe1_VTurb.dat};\label{vPt}
+        \addlegendentry{$\hat{v}$};
+	\end{axis}
+\end{tikzpicture}

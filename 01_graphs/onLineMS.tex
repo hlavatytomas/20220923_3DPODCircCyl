@@ -1,0 +1,129 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			width=0.75\linewidth,
+			height = 4cm,
+			scale only axis,
+			name=plot1,
+			xlabel=$x_r$,
+			ylabel={$u_r$ [-]},
+			%~ ymode=log,
+			%~ xmode=log,
+			ymax = 0.8,
+			xmin = 0.5,
+			ymin = -0.5,
+			xmax = 7,
+			ytick pos=left,
+			mark size=4pt,    
+			line width = 0.9pt,
+			%~ legend style={at={(axis cs:6,2)},anchor=south west},				
+		]
+		% \addplot [color = black!50,mark =none]table [y=u_x,x =x]{\myGraphs/msIndData/expLineResV1.dat};\label{uxExp}
+		\addplot [color = blue,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_40p_U.csv};\label{mesh40U}
+		\addplot [color = red,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_50p_U.csv};\label{mesh50U}
+		\addplot [color = green,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_75p_U.csv};\label{mesh70U}
+		\addplot [color = black,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/bCyl_l_3_U.csv};\label{mesh100U}
+		% \addplot [color = magenta,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/bCyl_l_3V2_U.csv};\label{mesh110U}
+		% \addplot [color = orange,mark =none]table [col sep=comma, y expr=(\thisrow{U:0})/5,x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_120p_U.csv};\label{mesh120U}
+		%~ \addplot [color = red,mark =none]table [y=U_x_ms_50_U,x =z_ms_50_U]{\myGraphs/onLineMSV2.dat};\label{mesh50U}
+		%~ \addplot [color = green,mark =none]table [y=U_x_ms_70_U,x =z_ms_70_U]{\myGraphs/onLineMSV2.dat};\label{mesh70U}
+		%~ \addplot [color = black,mark =none]table [y=U_x_ms_100_U,x =z_ms_100_U]{\myGraphs/onLineMSV2.dat};\label{mesh100U}
+		%~ \addplot [color = black,mark =none]table [y=U_x_ms_100_U,x =z_ms_120_U]{\myGraphs/onLineMSV2.dat};\label{mesh100U}
+		\coordinate (top) at (rel axis cs:0,1);
+		\end{axis}
+    \begin{axis}[
+			width=0.75\linewidth,
+			height = 4cm,
+			scale only axis,
+			xlabel=$x_r$,
+			%~ ylabel={\textcolor{red}{TKE}},
+			ylabel={$k$ [-]},
+			%~height=\figHeight,
+			scale only axis,
+			%~ xmin=0,
+			%~ xmax=600,
+			xmin=0.5,
+			xmax=7,
+			ymin=0,
+			ymax = 0.3,
+			%~ ymax=1000,
+			hide x axis,
+			line width = 0.9pt,
+			axis y line*=right,
+			%~ axis line style={red},
+			%~ axis y label/.append style ={red},
+			%~ ytick label/.append style = {red},
+			%~ ylabel={$y_{\mathrm{NO}},\,y_{\mathrm{N_{2}O}} \mathrm{\,[ppm]}$},
+			mark size=2.5pt, 
+        ]
+		% \addplot [color = black!50,mark =none,dashed]table [y=k,x =x]{\myGraphs/msIndData/expLineResKV1.dat};\label{kExp}
+        \addplot [color = blue,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_40p_k.csv};\label{mesh40k}
+        \addplot [color = red,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_50p_k.csv};\label{mesh50k}
+        \addplot [color = green,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_75p_k.csv};\label{mesh70k}
+        \addplot [color = black,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/bCyl_l_3_k.csv};\label{mesh100k}
+		% \addplot [color = magenta,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/bCyl_l_3V2_k.csv};\label{mesh110k}
+        % \addplot [color = orange,mark =none,dashed]table [col sep=comma, y expr=(\thisrow{k}),x expr = {(\thisrow{Points:0})/0.015}]{\myGraphs/msIndData/mS_120p_k.csv};\label{mesh120k}
+
+		\coordinate (bot) at (rel axis cs:1,0);
+\end{axis}
+
+    \matrix[
+        matrix of nodes,
+        anchor=south,
+        draw,
+        inner sep=0.2em,
+        %~ thick,
+        fill=white,
+      ]at([xshift=0,yshift=0.2cm]plot1.south)
+      {
+        %~ \ref{100}& CFD old &[5pt]\\
+        %~ \ref{60}& XPF - reac, wall&[5pt]\\
+		% \ref{uxExp}& exp U &
+        % \ref{mesh100U}& $u$ &
+        \ref{mesh40U}& 3.5M cells &
+        % \ref{uxExp}& $U$ exp &[5pt]\\
+        \ref{mesh50U}& 5.0M cells & \\
+        \ref{mesh70U}& 7.4M cells &
+        \ref{mesh100U}& 8.3M cells & 
+		% \ref{mesh110U}& 110 U &
+        % \ref{mesh120U}& 120 U\\
+		% \ref{kExp}& exp k &
+        % \ref{mesh100k}& $k$ &
+        % \ref{mesh40k}& 40 k &
+        % % \ref{uxExp}& $U$ exp &[5pt]\\
+        % \ref{mesh50k}& 50 k &
+        % \ref{mesh70k}& 75 k &
+        % \ref{mesh100k}& 100 k &
+		% \ref{mesh110k}& 110 k &
+        % \ref{mesh120k}& 120 k
+		\\
+%        \ref{legendNoReact}& $\mathrm{thermic\ no\ reaction\ heat}$&[5pt]
+        \\};
+	\matrix[
+        matrix of nodes,
+        anchor=east,
+        draw,
+        inner sep=0.2em,
+        %~ thick,
+        fill=white,
+      ]at([xshift=-0.2cm,yshift=0cm]plot1.east)
+      {
+        %~ \ref{100}& CFD old &[5pt]\\
+        %~ \ref{60}& XPF - reac, wall&[5pt]\\
+		% \ref{uxExp}& exp U
+		
+        \ref{mesh100U}& $u_r$ \\
+		% \ref{mesh110U}& 110 U &
+        % \ref{mesh120U}& 120 U\\
+		% \ref{kExp}& exp k &
+        \ref{mesh100k}& $k$ &
+        % \ref{mesh40k}& 40 k &
+        % % \ref{uxExp}& $U$ exp &[5pt]\\
+        % \ref{mesh50k}& 50 k &
+        % \ref{mesh70k}& 75 k &
+        % \ref{mesh100k}& 100 k &
+		% \ref{mesh110k}& 110 k &
+        % \ref{mesh120k}& 120 k
+		\\
+%        \ref{legendNoReact}& $\mathrm{thermic\ no\ reaction\ heat}$&[5pt]
+        \\};
+	\end{tikzpicture}

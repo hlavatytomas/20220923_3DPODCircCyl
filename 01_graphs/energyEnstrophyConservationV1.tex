@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			width=0.8\linewidth,
+			height = 4cm,
+			scale only axis,
+			name=plot1,
+			xlabel=$\tilde{t}$,
+			ylabel={$\tilde{E} \,, \tilde{Z}$},
+			xmin = 0,
+			xmax = 60,
+			ytick pos=left,
+			font = \scriptsize,
+			mark size=4pt,    
+            legend style ={
+                at={(0.99,0.01)}, 
+                anchor=south east,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=6,
+                font=\scriptsize
+            },		
+            line width = 0.55pt,	
+		]
+        % laminar
+        \addplot [color = blue,mark =none,smooth,dotted] table [y=enScaled,x =tSc]{\myGraphs/spctraData/energConsLamV1.dat};
+        \addlegendentry{$\tilde{E}_{\text{lam.}}$}
+        \addplot [color = red,mark =none,smooth,dotted] table [y=ensScaled,x =tSc]{\myGraphs/spctraData/ensConsLamV1.dat};
+        \addlegendentry{$\tilde{Z}_{\text{lam.}}$}
+        % PoM1
+		\addplot [color = blue,mark =none,dashed]table [y=enScaled,x =tSc]{\myGraphs/spctraData/enEnsPoM1ConsV1.dat};
+        \addlegendentry{$\tilde{E}_{\text{PoM1}}$}
+		\addplot [color = red, mark =none,dashed]table [y=ensScaled,x =tSc]{\myGraphs/spctraData/enEnsPoM1ConsV1.dat};
+        \addlegendentry{$\tilde{Z}_{\text{PoM1}}$}
+        % RoI
+		\addplot [color = blue,mark =none,solid]table [y=enScaled,x =tSc]{\myGraphs/spctraData/energCons3DRoIV1.dat};
+        \addlegendentry{$\tilde{E}_{\text{RoI}}$}
+		\addplot [color = red, mark =none,solid]table [y=ensScaled,x =tSc]{\myGraphs/spctraData/enstropyCons3DRoIV1.dat};
+        \addlegendentry{$\tilde{Z}_{\text{RoI}}$}
+		\end{axis}
+	\end{tikzpicture}

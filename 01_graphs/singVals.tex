@@ -1,0 +1,89 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		name=plot1,
+		xlabel={mode number $j$},
+		% ylabel={$\sigma_k^2/\sum_{i=1}^{2000}\,\sigma_i^2$},
+		ylabel={$E_j$},
+		font = \scriptsize,
+		% xtick distance=1,ytick distance=1,
+		width=0.48\textwidth,
+		height=0.35\textwidth, %height= 5/3*0.5
+		% x label style = {at={(axis cs:3.5,-2.7)}},
+		% y label style = {at={(axis cs:-1,0)}},
+		% enlargelimits=false,
+		% scale only axis=true,
+		ytick pos=left,
+		xtick pos=bottom,
+		ymode=log,
+		xmode=log,
+		line width = 0.85pt,
+		xmax=2000,
+		xmin=1,
+		ymax=1,
+		ymin=1e-5,
+		%  tick align=outside,
+		]
+		% \addplot [color = blue,mark =none] table [x expr=\thisrow{x}+1, y expr = \thisrow{singValsqLomSumasingValsq}]{\myGraphs/singValsData/singVals_U.dat};
+		\addplot [color = blue,mark =none] table [x expr=\thisrow{x}+1, y expr = \thisrow{singValsqLomSumasingValsq}]{\myGraphs/singValsData/singVals_U_onlyXY.dat};
+		\addplot [color = red,mark =none] table [x expr=\thisrow{x}, y expr = \thisrow{singValsqLomSumasingValsq}]{\myGraphs/singValsData/singVals_U_exp.dat};
+	\end{axis}
+	\matrix[
+			matrix of nodes,
+			anchor=north east,
+			draw,
+			inner sep=0.2em,
+			font = \scriptsize,
+			%~ thick,
+			fill=white,
+		]at([xshift=-0.2cm,yshift=-0.2cm]plot1.north east)
+		{
+			%~ \ref{100}& CFD old &[5pt]\\
+			%~ \ref{60}& XPF - reac, wall&[5pt]\\
+			\ref{expSigm}& PIV &
+			% \ref{mesh40U}& 40 U &
+			% \ref{uxExp}& $U$ exp &[5pt]\\
+			% \ref{mesh50U}& 50 U &
+			% \ref{mesh70U}& 75 U &
+			% \ref{ux_sigma}& $u_{r}$ &
+			% \ref{mesh120U}& 120 U
+			\\
+			\ref{numSigm}& CFD &
+			% \ref{mesh40k}& 40 k &
+			% \ref{uxExp}& $U$ exp &[5pt]\\
+			% \ref{mesh50k}& 50 k &
+			% \ref{mesh70k}& 75 k &
+			% \ref{k_sigma}& $k$ &
+			% \ref{mesh120k}& 120 k
+			\\
+		%        \ref{legendNoReact}& $\mathrm{thermic\ no\ reaction\ heat}$&[5pt]
+			\\};
+	\begin{axis}[
+		anchor = north west,
+		at = {(plot1.north east)},
+		xlabel={mode number $j$},
+		% ylabel={$\sigma_k^2/\sum_{i=1}^{2000}\,\sigma_i^2$},
+		ylabel={$E_j$},
+		font = \scriptsize,
+		% xtick distance=1,ytick distance=1,
+		width=0.48\textwidth,
+		height=0.35\textwidth, %height= 5/3*0.5
+		xshift=0.4cm,
+		% x label style = {at={(axis cs:3.5,-2.7)}},
+		% y label style = {at={(axis cs:-1,0)}},
+		% enlargelimits=false,
+		% scale only axis=true,
+		ytick pos=right,
+		xtick pos=bottom,
+		ymode=log,
+		xmode=log,
+		line width = 0.85pt,
+		xmax=2000,
+		xmin=1,
+		ymax=1,
+		ymin=1e-5,
+		%  tick align=outside,
+		]
+		\addplot [color = blue,mark =none] table [x expr=\thisrow{x}+1, y expr = \thisrow{singValsqLomSumasingValsq}]{\myGraphs/singValsData/singVals_U_ver.dat};
+		\addplot [color = red,mark =none] table [x expr=\thisrow{x}, y expr = \thisrow{singValsqLomSumasingValsq}]{\myGraphs/singValsData/singVals_U_exp_ver.dat};
+	\end{axis}
+\end{tikzpicture}

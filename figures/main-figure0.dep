@@ -1,0 +1,4 @@
+figures/main-figure0.pdf: 01_graphs/lamVKStreet/spctraTop0.csv
+figures/main-figure0.pdf: 01_graphs/lamVKStreet/spctraTop2.csv
+figures/main-figure0.pdf: 01_graphs/lamVKStreet/spctraTop4.csv
+figures/main-figure0.pdf: 01_graphs/lamVKStreet/spctraTop6.csv

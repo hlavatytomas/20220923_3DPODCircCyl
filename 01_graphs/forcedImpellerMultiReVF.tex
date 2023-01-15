@@ -1,0 +1,168 @@
+
+\begin{tikzpicture}
+\begin{axis}[
+width=0.328\textwidth,
+height=6cm,
+name=Re15,
+ylabel=${u_{x,y}\,\mathrm{[L\,T^{-1}]}}$,
+xlabel=${t\,\mathrm{[T]}}$,
+%~ scale only axis,
+%~ xmajorgrids,
+xmin = 0.0,
+xmax = 1,
+ymin = -0.02,
+ymax = 0.10,
+xtick={0,1},
+xticklabels={1,1.5},
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+legend style ={
+                %~ at={(0.3,0.47)}, 
+                at={(1.1 ,0.5)}, 
+                %~ anchor=north west, %north west
+                anchor=east, %north west
+                draw=black, 
+                fill=white,
+                align=left,
+                legend columns=1,
+                %~ font=\scriptsize
+                font=\small
+            },
+%cycle list name=exotic,
+]
+
+% Re= 15
+\addplot+ [mark=none,black,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE15_CFD};
+\label{Ux}
+\addplot+ [mark=none,black,style=solid,thick,dashed,select coords between index={137}{205},thick,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE15_CFD};
+\label{Uy}
+\addplot+ [mark=none,blue,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE15_hex_V18-V9-IsozIVOF6};
+\label{hex}
+\addplot+ [mark=none,blue,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE15_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE15_tri_V18-V9-IsozIVOF6};
+\label{tri}
+\addplot+ [mark=none,orange,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE15_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE15_poly_V18-V9-IsozIVOF6};
+\label{poly}
+\addplot+ [mark=none,green,style=solid,thick,dashed,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE15_poly_V18-V9-IsozIVOF6};
+
+\node [draw,fill=white,anchor=west,font=\small] at (rel axis cs: 0.02 ,0.63) {\shortstack[l]
+{
+\ref{Ux} CFD\\
+\ref{hex} hexMesh\\
+\ref{tri} triMesh\\
+\ref{poly} polyMesh\hspace{-0.07cm}
+}};
+\node[anchor=west] at (rel axis cs: 0.01,0.35) {$\Rey=15$};
+\end{axis}
+
+\begin{axis}[
+width=0.328\textwidth,
+height=6cm,
+name=Re100,
+at=(Re15.right of east),anchor=west,
+xlabel=${t\,\mathrm{[T]}}$,
+yticklabels={,,},
+xtick={0,1},
+xticklabels={1,1.5},
+xmin = 0.0,
+xmax = 1,
+ymin = -0.02,
+ymax = 0.10,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+]
+
+\addplot+ [mark=none,black,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE100_CFD};
+\addplot+ [mark=none,black,style=solid,thick,dashed,select coords between index={137}{205},thick,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE100_CFD};
+\addplot+ [mark=none,blue,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE100_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,blue,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE100_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE100_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE100_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE100_poly_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,dashed,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE100_poly_V18-V9-IsozIVOF6};
+\node[anchor=west] at (rel axis cs: 0.01,0.35) {$\Rey=100$};
+\end{axis}
+
+\begin{axis}[
+width=0.328\textwidth,
+height=6cm,
+name=Re300,
+at=(Re100.right of east),anchor=west,
+xlabel=${t\,\mathrm{[T]}}$,
+yticklabels={,,},
+xtick={0,1},
+xticklabels={1,1.5},
+xmin = 0.0,
+xmax = 1,
+ymin = -0.02,
+ymax = 0.10,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+]
+
+\addplot+ [mark=none,black,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE300_CFD};
+\addplot+ [mark=none,black,style=solid,thick,dashed,select coords between index={137}{205},thick,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE300_CFD};
+\addplot+ [mark=none,blue,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE300_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,blue,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE300_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE300_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE300_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE300_poly_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,dashed,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE300_poly_V18-V9-IsozIVOF6};
+\node[anchor=west] at (rel axis cs: 0.01,0.35) {$\Rey=300$};
+\end{axis}
+
+\begin{axis}[
+width=0.328\textwidth,
+height=6cm,
+name=Re500,
+at=(Re300.right of east),anchor=west,
+xlabel=${t\,\mathrm{[T]}}$,
+yticklabels={,,},
+xtick={0,1},
+xticklabels={1,1.5},
+xmin = 0.0,
+xmax = 1,
+ymin = -0.02,
+ymax = 0.10,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+]
+
+\addplot+ [mark=none,black,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE500_CFD};
+\addplot+ [mark=none,black,style=solid,thick,dashed,select coords between index={137}{205},thick,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE500_CFD};
+\addplot+ [mark=none,blue,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE500_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,blue,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE500_hex_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE500_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,orange,style=solid,thick,dashed,select coords between index={137}{205}] table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE500_tri_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Ux1}] {\myGraphs/forcedImpeller/URED_11_RE500_poly_V18-V9-IsozIVOF6};
+\addplot+ [mark=none,green,style=solid,thick,dashed,select coords between index={137}{205}]table [x expr={(\thisrow{t}-1)*2.0}, y={Uy1}] {\myGraphs/forcedImpeller/URED_11_RE500_poly_V18-V9-IsozIVOF6};
+
+\node [draw,fill=white,anchor=north east,font=\small] at (rel axis cs: 0.97,0.99) {\shortstack[l]
+{
+\ref{Ux} $u_{x}$ \\
+\ref{Uy} $u_{y}$ }};
+\node[anchor=west] at (rel axis cs: 0.01,0.35) {$\Rey=500$};
+\end{axis}
+\node[left=1.0cm,anchor=east] at (Re15.north west) {(b)};
+\end{tikzpicture}

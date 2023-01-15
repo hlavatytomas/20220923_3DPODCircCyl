@@ -1,0 +1,57 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		name=lamCase,
+		%~ xlabel={$t$},
+		ylabel={$\eta_{j}/\max{|\eta_{j}|}$},
+		font = \scriptsize,
+		width=0.98\textwidth,
+		height=0.52\textwidth,
+		ytick pos=left,
+		xtick pos=bottom,
+		line width = 0.85pt,
+        xmin=0,
+        xmax=6,
+        ymin=-1.05,
+        ymax=1.05,
+		]
+		\addplot [color=blue,mark=none,select coords between index={1}{300},smooth] table [x expr=\thisrow{t}/0.666666, y expr = \thisrow{eta0}/2.14766]{\myGraphs/lamVKStreet/etas0-7Re115.dat};
+		\addplot [color=red,mark=none,select coords between index={1}{300},smooth] table [x expr=\thisrow{t}/0.666666, y expr = \thisrow{eta2}/0.36769]{\myGraphs/lamVKStreet/etas0-7Re115.dat};
+		\addplot [color=green!70!black,mark=none,select coords between index={1}{300},smooth] table [x expr=\thisrow{t}/0.666666, y expr = \thisrow{eta4}/0.2153]{\myGraphs/lamVKStreet/etas0-7Re115.dat};
+		\addplot [color=brown,mark=none,select coords between index={1}{300},smooth] table [x expr=\thisrow{t}/0.666666, y expr = \thisrow{eta6}/0.0627083]{\myGraphs/lamVKStreet/etas0-7Re115.dat};
+	\end{axis}
+    \begin{axis}[
+		name=turbCase,
+        anchor=north,
+        at=(lamCase.below south),
+		xlabel={$\tilde{t}$},
+		ylabel={$\eta_{j}/\max{|\eta_{j}|}$},
+		font = \scriptsize,
+		width=0.98\textwidth,
+		height=0.52\textwidth,
+		ytick pos=left,
+		xtick pos=bottom,
+		line width = 0.85pt,
+        xmin=0,
+        xmax=6,
+        ymin=-1.05,
+        ymax=1.05,
+        legend style ={
+                at={(0.01,0.99)}, 
+                anchor=north west,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=4,
+                font=\scriptsize
+            },
+		]
+		\addplot [color=blue,mark=none,select coords between index={1}{200}] table [x expr=\thisrow{t}/0.014064697609001408, y expr = \thisrow{eta0}/1861.34]{\myGraphs/lamVKStreet/3DTurbEtasV1.dat};
+        \addlegendentry{$j=1$};
+		\addplot [color=red,mark=none,select coords between index={1}{200}] table [x expr=\thisrow{t}/0.014064697609001408, y expr = \thisrow{eta2}/1540.7]{\myGraphs/lamVKStreet/3DTurbEtasV1.dat};
+        \addlegendentry{$j=3$};
+		\addplot [color=green!70!black,mark=none,select coords between index={1}{200}] table [x expr=\thisrow{t}/0.014064697609001408, y expr = \thisrow{eta4}/877.636]{\myGraphs/lamVKStreet/3DTurbEtasV1.dat};
+        \addlegendentry{$j=5$};
+		\addplot [color=brown,mark=none,select coords between index={1}{200}] table [x expr=\thisrow{t}/0.014064697609001408, y expr = \thisrow{eta6}/638.358]{\myGraphs/lamVKStreet/3DTurbEtasV1.dat};
+        \addlegendentry{$j=7$};
+	\end{axis}
+\end{tikzpicture}

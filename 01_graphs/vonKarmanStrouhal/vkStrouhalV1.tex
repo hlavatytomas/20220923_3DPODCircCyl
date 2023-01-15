@@ -1,0 +1,88 @@
+%~ minimal latex document to print the output graph
+\documentclass[varwidth=1.0\linewidth,convert,crop=true]{standalone}
+\usepackage{amssymb,amsmath,bm}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.9}
+
+\usetikzlibrary{positioning}
+
+\usepackage{xcolor}
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+\begin{document}
+\begin{figure}[H]
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+width=0.9\textwidth,
+height=8cm,
+%~ scale only axis,
+ylabel=${\mathrm{Sr}\,\mathrm{[-]}}$,
+xlabel=${\mathrm{Re}\,\mathrm{[-]}}$,
+%~ xmajorgrids,
+xmin = 0.0,
+xmax = 550.0,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+legend style ={
+                at={(0.99,0.02)}, 
+                %~ anchor=north,
+                anchor=south east,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=1,
+                font=\scriptsize
+            },
+%~ %cycle list name=exotic,
+]
+
+%~ \addplot+ [only marks,mark=*,red,style=solid,thick]table [x={Re}, y={Sr_CFD}] {Sr_Velocity_Results_CFD};
+%~ \addplot+ [mark=*,red,style=solid,thick]table [x={Re}, y={Sr_CFD}] {Sr_Velocity_Results_CFD};
+\addplot+ [thick]table [x={Re}, y={Sr_CFD}] {Sr_Velocity_Results_CFD};
+\addlegendentry{${\mathrm{CFD}}^{}$}
+%~ \addplot+ [only marks,mark=square,green,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB};
+%~ \addplot+ [mark=square,green,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDTrue};
+\addplot+ [thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDTrue};
+\addlegendentry{${\mathrm{HFDIB-}\sigma}^{}$}
+%~ \addplot+ [mark=diamond,cyan,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDFalse};
+\addplot+ [thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDFalse};
+\addlegendentry{${\mathrm{HFDIB-}\tilde{\sigma}}^{}$}
+%~ %===========================================================================================
+\plot [name path=bottom,gray,smooth,forget plot]table [x={Re}, y={Sr_BotLine}] {1966_Lienhart_Botline};
+%~ \addlegendentry{none}
+\plot [name path=top,gray,smooth,forget plot] table [x={Re}, y={Sr_TopLine}] {1966_Lienhart_TopLine};
+%~ \addlegendentry{none}
+\addplot[fill=gray,opacity=0.2] fill between[of=bottom and top];
+\addlegendentry{$\mathrm{Sr}_{\mathrm{LIENHARD1966-wideZone}}$}
+%~ %===========================================================================================
+
+%~ %===========================================================================================
+\addplot [color=black, only marks,mark=square] table [x={Re}, y={Exp}] {1953_Anatol_Sr};
+\addlegendentry{$\mathrm{Sr}_{\mathrm{ANATOL53}}$}
+\addplot [color=black, only marks,mark=diamond] table [x={RE}, y={Sr_others}] {1966_Lienhart_Sr};
+\addlegendentry{$\mathrm{Sr}_{\mathrm{LIENHARD1966}}$}
+\addplot [color=black, only marks, mark=o] table [x={Re}, y={Sr}] {1994_Norberg_Sr};
+\addlegendentry{$\mathrm{Sr}_{\mathrm{NORBERG1994}}$}
+%~ %===========================================================================================
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\caption{Evolution of Strouhal number on Reynolds number}
+\label{fig:examplePlot}
+\end{figure}
+\end{document}

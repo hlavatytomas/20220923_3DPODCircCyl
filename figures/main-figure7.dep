@@ -1,0 +1,6 @@
+figures/main-figure7.pdf: 01_graphs/spctraData/energConsLamV1.dat
+figures/main-figure7.pdf: 01_graphs/spctraData/ensConsLamV1.dat
+figures/main-figure7.pdf: 01_graphs/spctraData/enEnsPoM1ConsV1.dat
+figures/main-figure7.pdf: 01_graphs/spctraData/enEnsPoM1ConsV1.dat
+figures/main-figure7.pdf: 01_graphs/spctraData/energCons3DRoIV1.dat
+figures/main-figure7.pdf: 01_graphs/spctraData/enstropyCons3DRoIV1.dat

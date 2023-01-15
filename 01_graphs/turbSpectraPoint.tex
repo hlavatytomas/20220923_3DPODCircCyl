@@ -1,0 +1,272 @@
+\begin{tikzpicture}
+	\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.27\textwidth,
+			scale only axis,
+			name=plot1,
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ymode=log,
+			xmode=log,
+			ymax = 100,
+			xmin = 1,
+			ymin = 1e-4,
+			xmax=1e3,
+			ytick pos=left,
+			font=\scriptsize,
+			mark size=4pt,    
+			ytick={100,1,0.01,0.0001},
+			% legend style={at={(axis cs:1.5,1e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			xtick pos=top,			
+			line width = 0.85pt
+		]
+		\addplot [color = blue,mark =none]table [y expr=(\thisrow{ux}),x=x]{\myGraphs/spctraData/point0_probeSpectraExp.dat};
+		\addlegendentry{$u$}
+		\addplot [color = green!70!black,mark =none]table [y expr=(\thisrow{uy})*1,x=x]{\myGraphs/spctraData/point0_probeSpectraExp.dat};
+		\addlegendentry{$v$}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e2)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e2)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e2)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,5e-4) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,5e-4) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,5e-4) {$f_{3}$};
+		\draw (axis cs:250,3.225054343350042) -- (axis cs:300,3.225054343350042)--(axis cs:300,2.379952523639248);
+		\node[above,xshift=0.2cm,yshift=-0.1cm] at (axis cs:300,3.225054343350042) {\scriptsize{-5/3}};
+
+		\draw (axis cs:600,0.34190775000000023) -- (axis cs:720,0.34190775000000023)--(axis cs:720,0.19786328124999977);
+		\node[above] at (axis cs:720,0.34190775000000023) {\scriptsize{-3}};
+	\end{axis}
+	\node[at={(plot1.north west)},anchor=north west] {\small{PIV $p_{1}$}};
+	\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.27\textwidth,
+			scale only axis,
+			xshift=0.4cm,
+			font=\scriptsize,
+			name=plot2,
+			at={(plot1.east)},
+			anchor=west,
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ymode=log,
+			xmode=log,
+			ymax = 100,
+			xmin = 1,
+			ytick pos=right,
+			xtick pos=top,
+			ymin = 1e-4,
+			ytick={100,1,0.01,0.0001},
+			xmax=1e3,
+			% ytick pos=left,
+			mark size=4pt,    
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			line width = 0.85pt
+		]
+		\addplot [color = blue,mark =none]table [y expr=(\thisrow{ux}),x=x]{\myGraphs/spctraData/point1_probeSpectraExp.dat};
+		\addlegendentry{$u$}
+		\addplot [color = green!70!black,mark =none]table [y expr=(\thisrow{uy})*1,x=x]{\myGraphs/spctraData/point1_probeSpectraExp.dat};
+		\addlegendentry{$v$}
+		% \addplot [color=red,mark=none] coordinates {
+		% 	(213,13.16337723958297)
+		% 	(1e3,0.9999999999999994 )
+		% };
+		% \addlegendentry{Kolm.}
+		% \addplot [color=orange,mark=none] coordinates {
+		% 	(213,13.16337723958297)
+		% 	(1e3,0.12717293651999992 )
+		% };
+		% \addlegendentry{Kraich.}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e2)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e2)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e2)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,5e-4) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,5e-4) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,5e-4) {$f_{3}$};
+
+		% \draw (axis cs:400,1.9870771331249972 ) -- (axis cs:400,1.39)--(axis cs:450,1.39);
+		% \node[below] at (axis cs:400,1.39) {\scriptsize{-3}};
+
+		% \draw (axis cs:450,3.783) -- (axis cs:530,3.783)--(axis cs:530,2.880240673477308);
+		% \node[above] at (axis cs:500,3.783) {\scriptsize{-5/3}};
+		\draw (axis cs:250,3.225054343350042) -- (axis cs:300,3.225054343350042)--(axis cs:300,2.379952523639248);
+		\node[above,xshift=0.2cm,yshift=-0.1cm] at (axis cs:300,3.225054343350042) {\scriptsize{-5/3}};
+
+		\draw (axis cs:600,0.34190775000000023) -- (axis cs:720,0.34190775000000023)--(axis cs:720,0.19786328124999977);
+		\node[above] at (axis cs:720,0.34190775000000023) {\scriptsize{-3}};
+	\end{axis}
+	\node[at={(plot2.north west)},anchor=north west] {\small{PIV $p_{2}$}};
+
+	\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.27\textwidth,
+			scale only axis,
+			yshift=-0.3cm,
+			font=\scriptsize,
+			name=plot3,
+			at={(plot1.south)},
+			anchor=north,
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ymode=log,
+			xmode=log,
+			ymax = 100,
+			ytick={100,1,0.01,0.0001},
+			xmin = 1,
+			ytick pos=left,
+			xtick pos=bottom,
+			ymin = 1e-4,
+			xmax=1e3,
+			% ytick pos=left,
+			mark size=4pt,    
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			line width = 0.85pt
+		]
+		\addplot [color = blue,mark =none]table [y expr=\thisrow{ux}^2,x=x]{\myGraphs/spctraData/point0_probeSpectra.dat};
+		\addlegendentry{$u$}
+		\addplot [color = green!70!black,mark =none]table [y expr=\thisrow{uy}^2,x=x]{\myGraphs/spctraData/point0_probeSpectra.dat};
+		\addlegendentry{$v$}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e2)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e2)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e2)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,5e-4) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,5e-4) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,5e-4) {$f_{3}$};
+
+
+		\draw (axis cs:250,3.225054343350042) -- (axis cs:300,3.225054343350042)--(axis cs:300,2.379952523639248);
+		\node[above,xshift=0.2cm,yshift=-0.1cm] at (axis cs:300,3.225054343350042) {\scriptsize{-5/3}};
+
+		\draw (axis cs:600,0.34190775000000023) -- (axis cs:720,0.34190775000000023)--(axis cs:720,0.19786328124999977);
+		\node[above] at (axis cs:720,0.34190775000000023) {\scriptsize{-3}};
+	\end{axis}
+	\node[at={(plot3.north west)},anchor=north west] {\small{CFD $p_{1}$}};
+
+	\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.27\textwidth,
+			scale only axis,
+			xshift=0.4cm,
+			font=\scriptsize,
+			name=plot4,
+			at={(plot3.east)},
+			anchor=west,
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ytick={100,1,0.01,0.0001},
+			ymode=log,
+			xmode=log,
+			ymax = 100,
+			xmin = 1,
+			ytick pos=right,
+			xtick pos=bottom,
+			ymin = 1e-4,
+			xmax=1e3,
+			% ytick pos=left,
+			mark size=4pt,    
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			line width = 0.85pt
+		]
+		\addplot [color = blue,mark =none]table [y expr=\thisrow{ux}^2,x=x]{\myGraphs/spctraData/point1_probeSpectra.dat};
+		\addlegendentry{$u$}
+		\addplot [color = green!70!black,mark =none]table [y expr=\thisrow{uy}^2,x=x]{\myGraphs/spctraData/point1_probeSpectra.dat};
+		\addlegendentry{$v$}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e2)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e2)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e2)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,5e-4) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,5e-4) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,5e-4) {$f_{3}$};
+
+		\draw (axis cs:250,3.225054343350042) -- (axis cs:300,3.225054343350042)--(axis cs:300,2.379952523639248);
+		\node[above,xshift=0.2cm,yshift=-0.1cm] at (axis cs:300,3.225054343350042) {\scriptsize{-5/3}};
+
+		\draw (axis cs:600,0.34190775000000023) -- (axis cs:720,0.34190775000000023)--(axis cs:720,0.19786328124999977);
+		\node[above] at (axis cs:720,0.34190775000000023) {\scriptsize{-3}};
+	\end{axis}
+	\node[at={(plot4.north west)},anchor=north west] {\small{CFD $p_{2}$}};
+\end{tikzpicture}

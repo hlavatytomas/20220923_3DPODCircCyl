@@ -1,0 +1,86 @@
+\begin{tikzpicture}
+\node [above right] (figA) at (2.6,1.0) {\includegraphics[width=0.33\textwidth]{\myGraphs/staticImpeller/15_ImpellerCR.png}};
+\begin{axis}[
+width=0.8\textwidth,
+height=8cm,
+%~ scale only axis,
+ylabel=${u_{\mathrm{y}}\,\mathrm{[1]}}$,
+xlabel=${\ell\,\mathrm{[1]}}$,
+%~ xmajorgrids,
+xmin = 0.0,
+xmax = 1.00,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=1,
+                /tikz/.cd
+            },
+legend style ={
+                at={(0.99,0.95)}, 
+%~ %                at={(0.45 ,-0.35)}, 
+                anchor=north east, %north west
+%~ %               anchor=south, %north west
+%~ %               draw=black, 
+%~ %               fill=white,
+%~ %                align=left,
+%~ %                legend columns=5,
+                font=\scriptsize
+            },
+cycle list name=exotic,
+]
+\addplot+ [mark=none,blue,style=solid,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_CFD_Re_100};
+%\addlegendentry{$\mathrm{U^{CFD}}$}
+\label{RE100}
+\addplot+ [mark=none,blue,style=thick,dashed]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_CFD_Re_500};
+%\addlegendentry{$\mathrm{U^{CFD}}$}
+\label{RE500}
+
+\addplot+ [mark=none,red,style=solid,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_Hex_Re_100_V18-V8-DEV1OF6};
+%\addlegendentry{$\mathrm{U_{V15-V6}^{Hex}}$}
+\label{R1}
+\addplot+ [mark=none,red,style=solid,dashed,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_Hex_Re_500_V18-V8-DEV1OF6};
+%\addlegendentry{$\mathrm{U_{V15-V6}^{Hex}}$}
+
+%tri
+\addplot+ [mark=none,green,style=solid,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_tri_Re_100_V18-V8-DEV1OF6};
+%tri
+\label{R2}
+%\addlegendentry{$\mathrm{U_{V15-V6}^{Poly}}$}
+%tri
+\addplot+ [mark=none,green,style=solid,dashed,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_tri_Re_500_V18-V8-DEV1OF6};
+%\addlegendentry{$\mathrm{U_{V15-V6}^{Poly}}$}
+
+%poly
+\addplot+ [mark=none,brown,style=solid,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_poly_Re_100_V18-V8-DEV1OF6};
+%poly
+\label{R3}
+%\addlegendentry{$\mathrm{U_{V16rc-V7rc}^{Hex}}$}
+%poly
+\addplot+ [mark=none,brown,style=solid,dashed,thick]table [x expr=\thisrow{l}/100, y={Uy}] {\myGraphs/staticImpeller/POL_X_poly_Re_500_V18-V8-DEV1OF6};
+%\addlegendentry{$\mathrm{U_{V16rc-V7rc}^{Hex}}$}
+
+%merged\addplot+ [mark=none,green!50!white,style=solid]table [x expr=\thisrow{l}*10, y={Uy}] {\myGraphs/staticImpeller/POL_X_merged_Re_100_V18-V8-DEV1OF6};
+%merged\label{R4}
+%\addlegendentry{$\mathrm{U_{V16rc-V7rc}^{Poly}}$}
+%merged\addplot+ [mark=none,green!50!white,style=solid,dashed]table [x expr=\thisrow{l}*10, y={Uy}] {\myGraphs/staticImpeller/POL_X_merged_Re_500_V18-V8-DEV1OF6};
+%
+\node [draw,fill=white,anchor=south west,font=\small] at (rel axis cs: 0.01,0.02) {\shortstack[l]
+{
+\ref{RE100} $\Rey = 100 $ \\
+\ref{RE500} $\Rey = 500 $ }};
+\node [draw,fill=white,anchor=north east,font=\small] at (rel axis cs: 0.99,0.98) {\shortstack[l]
+{
+\ref{RE100} CFD \\
+\ref{R1} hexMesh \\ 
+\ref{R2} triMesh \\
+\ref{R3} polyMesh  
+%merged\ref{R4} $\mathrm{U_{}^{mergedMesh}}$
+}};
+
+%~ \node [draw,fill=white,anchor=south west] at (rel axis cs: 0.01,0.2) {\includegraphics[width=0.12\textwidth]{\myGraphs/staticImpeller/30_SubPlotA.png}};
+\node [draw,fill=white,anchor=south] at (rel axis cs: 0.5,0.02) {\includegraphics[width=0.18\textwidth]{\myGraphs/staticImpeller/15_SubPlotA.png}};
+
+\end{axis}
+
+\end{tikzpicture}

@@ -1,0 +1,8 @@
+figures/main-figure6.pdf: 01_graphs/spctraData/point0_probeSpectraExp.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point0_probeSpectraExp.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point1_probeSpectraExp.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point1_probeSpectraExp.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point0_probeSpectra.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point0_probeSpectra.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point1_probeSpectra.dat
+figures/main-figure6.pdf: 01_graphs/spctraData/point1_probeSpectra.dat

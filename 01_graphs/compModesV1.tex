@@ -1,0 +1,1140 @@
+\newcommand{\compModePoMJedna}[4]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			xtick pos=top,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			\node at (axis cs:6.5,1.7) {\scriptsize{PIV}};
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			\draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			\node [black!70,anchor=west] at (axis cs:3.83,-1.7) {\scriptsize{$\zeta$ (PoM2)}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+
+		\node [name = osaUx,anchor = south east,at={(plot1.south east)},yshift=-0.35cm] {\includegraphics[width=0.3\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.north west)},yshift=-0.3cm,xshift=0.0cm] {\scriptsize{$\omega_z$ [--]}};
+		\node [name = psi0, anchor = south,at={(osaUx.north)},yshift=-0.6cm,xshift=-1.3cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = west,at={(psi0.east)},yshift=-0.0cm,xshift=1.4cm] {\scriptsize{positive}};
+		\node [name=a, anchor=north west, at={(plot1.north west)}] {\scriptsize{a)}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.22cm] {\scriptsize{0.2}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+		% \node [name = psiM05, anchor = north west,at={(osaPsix.south west)},yshift=0.2cm] {\scriptsize{-0.1 \%}};
+		% \node [name = psiM05, anchor = north east,at={(osaPsix.south east)},yshift=0.2cm] {\scriptsize{0.1 \%}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#2}}
+		\begin{axis}[
+			name = plot2,
+			anchor = north east,
+			at = {(plot1.south east)},
+			yshift = -0.65cm,
+			% xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:7.8,0)}},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			xticklabels=\empty,
+			ytick pos=left,
+			xtick pos=bottom,
+			tick align=outside,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			\node at (axis cs:6.5,1.7) {\scriptsize{CFD}};
+			% \draw [black,dashdotted,line width = 1.0pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			
+			% \node [color=white] at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+		\end{axis}
+		\node [name=b, anchor=north west, at={(plot2.north west)}] {\scriptsize{b)}};
+
+		\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.5\textwidth,
+			scale only axis,
+			name=plot3,
+			anchor = north west,
+			xshift=0.3cm,
+			at = {(plot1.north east)},
+			% xlabel=frequency (Hz),
+			tick align=outside,
+			% ylabel=S.P (a.u),
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-5,
+			% ymax = 1e4,
+			% ymax = 1e-3,
+			xmax=1e3,
+			ytick pos=right,
+			font=\scriptsize,
+			mark size=4pt,    
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			xtick pos=top,
+			line width = 0.85pt,
+			% ytick={100,1,0.01,0.0001},
+		]
+		% \addplot [color = blue,mark =none,line width=0.6pt]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#3};
+		% \addlegendentry{PIV}
+		% \addplot [color = green!70!black,mark =none,each nth point=1,line width=0.6pt]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#4};
+		% \addlegendentry{CFD}
+		% \addplot [color=red,mark=none] coordinates {
+		% 	(213,13.16337723958297)
+		% 	(1e3,0.9999999999999994 )
+		% };
+		% \addlegendentry{Kolm.}
+		% \addplot [color=black,mark=none,solid] coordinates {
+		% 	(71, 1e-4)
+		% 	(71, 1e3)
+		% };
+		% \addplot [color=black,mark=none,dashed] coordinates {
+		% 	(142, 1e-4)
+		% 	(142, 1e3)
+		% };
+		% \addplot [color=black,mark=none,dashdotted] coordinates {
+		% 	(213, 1e-4)
+		% 	(213, 1e3)
+		% };
+		% \node[above left,anchor=east,black] at (axis cs:71,3e-2) {$f_{1}$};
+		% \node[above left,anchor=east,black] at (axis cs:162,3e-2) {$f_{2}$};
+		% \node[above right,anchor=west,black] at (axis cs:213,3e-2) {$f_{3}$};
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#3};
+		\addlegendentry{PIV}
+		\addplot [color = green!70!black,mark =none,each nth point=1]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#4};
+		\addlegendentry{CFD}
+		% \addplot [color=red,mark=none] coordinates {
+		% 	(213,13.16337723958297)
+		% 	(1e3,0.9999999999999994 )
+		% };
+		% \addlegendentry{Kolm.}
+		% \addplot [color=red,mark=none] coordinates {
+		% 	(71,26.282891182634373)
+		% 	(333,2 )
+		% };
+		% \addlegendentry{Kolm.}
+		% \addplot [color=orange,mark=none] coordinates {
+		% 	(142,10)
+		% 	(1e3,0.028632879999999958)
+		% };
+		% \addlegendentry{Kraich.}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-5)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-5)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-5)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-5) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-5) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-5) {$f_{3}$};
+	\end{axis}
+	\node [name=c, anchor=north west, at={(plot3.north west)}] {\scriptsize{c)}};
+
+	% 	% \node [name = osak,anchor = south east,at={(plot2.south east)},yshift=-0.7cm,xshift=-0.1cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/k_scale.png}};
+	% 	% \node [name = k, anchor = east,at={(osak.north west)},yshift=-0.1cm,xshift=-0.1cm] {\scriptsize{$k$ [-]}};
+	% 	% \node [name = psi0, anchor = south,at={(osak.north)},yshift=-0.2cm,xshift=-1.49cm] {\scriptsize{0.00}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.085cm] {\scriptsize{0.06}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.12}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.18}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.15cm] {\scriptsize{0.24}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.2cm] {\scriptsize{0.28}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+
+	\end{tikzpicture}
+}
+\newcommand{\compModePoMJednaVDva}[8]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,height=0.237\textwidth,width = 0.41\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [-]},
+			ylabel={$y_r$ [-]},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			xtick pos=top,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node at (axis cs:6.5,1.7) {\scriptsize{PIV}};
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70] at (axis cs:4.1,1.7) {\scriptsize{$\zeta$}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+
+		\node [name = osaUx,anchor = north,at={(plot1.south)},yshift=-0.0cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.north west)},yshift=-0.3cm,xshift=0.0cm] {\scriptsize{$\omega_z$ [-]}};
+		\node [name = psi0, anchor = south,at={(osaUx.north)},yshift=-0.6cm,xshift=-1.05cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = west,at={(psi0.east)},yshift=-0.0cm,xshift=0.9cm] {\scriptsize{positive}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.22cm] {\scriptsize{0.2}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+		% \node [name = psiM05, anchor = north west,at={(osaPsix.south west)},yshift=0.2cm] {\scriptsize{-0.1 \%}};
+		% \node [name = psiM05, anchor = north east,at={(osaPsix.south east)},yshift=0.2cm] {\scriptsize{0.1 \%}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,height=0.237\textwidth,width = 0.41\textwidth]{#2}}
+		\begin{axis}[
+			name = plot2,
+			anchor = north east,
+			at = {(plot1.south east)},
+			yshift = -0.6cm,
+			% xlabel={$x_r$ [-]},
+			ylabel={$y_r$ [-]},
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:7.8,0)}},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			ytick pos=left,
+			% xtick pos=bottom,
+			xticklabels={,,}
+			tick align=outside,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1.0pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \node [color=black] at (axis cs:6.5,1.7) {\scriptsize{CFD}};
+			% \node [color=white] at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+		\end{axis}
+
+		\begin{axis}[
+			width=0.41\textwidth,
+			% width=0.37\textwidth,
+			height = 0.3\textwidth,
+			scale only axis,
+			name=plot3,
+			anchor = north west,
+			% xshift=0.3cm,
+			yshift=-0.3cm,
+			at = {(plot2.south west)},
+			xlabel=frequency (Hz),
+			tick align=outside,
+			ylabel=S.P (a.u),
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-2,
+			xmax=1e3,
+			xtick pos=bottom,
+			% ytick pos=right,
+			ytick pos=left,
+			font=\scriptsize,
+			mark size=4pt,    
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			% xtick pos=top,
+			line width = 0.85pt,
+		]
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#3};
+		\addlegendentry{PIV}
+		\addplot [color = green!70!black,mark =none,each nth point=1]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#4};
+		\addlegendentry{CFD}
+		\addplot [color=red,mark=none] coordinates {
+			(213,13.16337723958297)
+			(1e3,0.9999999999999994 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-2) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-2) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-2) {$f_{3}$};
+	\end{axis}
+	% \end{tikzpicture}
+	% \begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,height=0.237\textwidth,width = 0.334\textwidth]{#5}}
+		\begin{axis}[
+			name = plot4,
+			at={(plot1.north east)},
+			anchor=north west,
+			xshift=0.2cm,
+			xlabel={$z_r$ [-]},
+			ylabel={$y_r$ [-]},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=right,
+			xtick pos=top,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=-3, xmax=3, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#5};
+			% \fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			% \fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node at (axis cs:2.6,1.7) {\scriptsize{PIV}};
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70] at (axis cs:4.1,1.7) {\scriptsize{$\zeta$}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+
+		\node [name = osaUx,anchor = north east,at={(plot4.south east)},yshift=-0.0cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.north west)},yshift=-0.3cm,xshift=0.0cm] {\scriptsize{$\psi_{1,x}$ [-]}};
+		\node [name = psi0, anchor = south,at={(osaUx.north)},yshift=-0.6cm,xshift=-1.05cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = west,at={(psi0.east)},yshift=-0.0cm,xshift=0.9cm] {\scriptsize{positive}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.22cm] {\scriptsize{0.2}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+		% \node [name = psiM05, anchor = north west,at={(osaPsix.south west)},yshift=0.2cm] {\scriptsize{-0.1 \%}};
+		% \node [name = psiM05, anchor = north east,at={(osaPsix.south east)},yshift=0.2cm] {\scriptsize{0.1 \%}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,height=0.237\textwidth,width = 0.334\textwidth]{#6}}
+		\begin{axis}[
+			name = plot5,
+			anchor = north east,
+			at = {(plot4.south east)},
+			yshift = -0.6cm,
+			% xlabel={$z_r$ [-]},
+			ylabel={$y_r$ [-]},
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:7.8,0)}},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			ytick pos=right,
+			xticklabels={,,}
+			% xtick pos=bottom,
+			tick align=outside,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=-3, xmax=3, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#6};
+			% \fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			% \fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1.0pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \node [color=black] at (axis cs:2.6,1.7) {\scriptsize{CFD}};
+			% \node [color=white] at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+		\end{axis}
+
+		\begin{axis}[
+			width=0.334\textwidth,
+			height = 0.3\textwidth,
+			scale only axis,
+			name=plot6,
+			anchor = north west,
+			yshift=-0.3cm,
+			at = {(plot5.south west)},
+			xlabel=frequency (Hz),
+			tick align=outside,
+			ylabel=S.P (a.u),
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-2,
+			xmax=1e3,
+			ytick pos=right,
+			font=\scriptsize,
+			mark size=4pt,   
+			legend style={anchor=south west},
+			legend pos=south west, 
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			smooth,
+			% xtick pos=top,
+			xtick pos=bottom,
+			line width = 0.85pt,
+		]
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}),x=t]{#7};
+		\addlegendentry{PIV}
+		\addplot [color = green!70!black,mark =none,each nth point=1]table [col sep=comma,y expr=(\thisrow{etaU}),x=t]{#8};
+		\addlegendentry{CFD}
+		\addplot [color=red,mark=none] coordinates {
+			(213,13.16337723958297)
+			(1e3,0.9999999999999994 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-2) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-2) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-2) {$f_{3}$};
+	\end{axis}
+	\node [color=black,anchor=north east,at={(plot1.north east)}] {\scriptsize{PIV}};
+	\node [color=black,anchor=north east,at={(plot2.north east)}] {\scriptsize{CFD}};
+	\node [color=black,anchor=north east,at={(plot4.north east)}] {\scriptsize{PIV}};
+	\node [color=black,anchor=north east,at={(plot5.north east)}] {\scriptsize{CFD}};
+
+	% 	% \node [name = osak,anchor = south east,at={(plot2.south east)},yshift=-0.7cm,xshift=-0.1cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/k_scale.png}};
+	% 	% \node [name = k, anchor = east,at={(osak.north west)},yshift=-0.1cm,xshift=-0.1cm] {\scriptsize{$k$ [-]}};
+	% 	% \node [name = psi0, anchor = south,at={(osak.north)},yshift=-0.2cm,xshift=-1.49cm] {\scriptsize{0.00}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.085cm] {\scriptsize{0.06}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.12}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.18}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.15cm] {\scriptsize{0.24}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.2cm] {\scriptsize{0.28}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+
+	\end{tikzpicture}
+}
+\newcommand{\compModePoMJednaVTri}[4]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [-]},
+			ylabel={$y_r$ [-]},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			xtick pos=top,
+			line width = 1.8pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node at (axis cs:6.5,1.7) {\scriptsize{PIV}};
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70] at (axis cs:4.1,1.7) {\scriptsize{$\zeta$}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+
+		\node [name = osaUx,anchor = north,at={(plot1.south)},yshift=-0.0cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.north west)},yshift=-0.3cm,xshift=0.0cm] {\scriptsize{$\omega_z$ [-]}};
+		\node [name = psi0, anchor = south,at={(osaUx.north)},yshift=-0.6cm,xshift=-1.05cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = west,at={(psi0.east)},yshift=-0.0cm,xshift=0.9cm] {\scriptsize{positive}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.22cm] {\scriptsize{0.2}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+		% \node [name = psiM05, anchor = north west,at={(osaPsix.south west)},yshift=0.2cm] {\scriptsize{-0.1 \%}};
+		% \node [name = psiM05, anchor = north east,at={(osaPsix.south east)},yshift=0.2cm] {\scriptsize{0.1 \%}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#2}}
+		\begin{axis}[
+			name = plot2,
+			anchor = north west,
+			at = {(plot1.north east)},
+			xshift = 0.03\textwidth,
+			xlabel={$x_r$ [-]},
+			ylabel={$y_r$ [-]},
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:7.8,0)}},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			ytick pos=right,
+			xtick pos=top,
+			% xticklabels={,,}
+			tick align=outside,
+			line width = 1.8pt
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1.0pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \node [color=black] at (axis cs:6.5,1.7) {\scriptsize{CFD}};
+			% \node [color=white] at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+		\end{axis}
+
+		\begin{axis}[
+			width=0.39\textwidth,
+			% width=0.37\textwidth,
+			height = 0.28\textwidth,
+			scale only axis,
+			name=plot3,
+			anchor = north west,
+			% xshift=0.3cm,
+			yshift=-0.4cm,
+			at = {(plot2.south west)},
+			xlabel=frequency (Hz),
+			tick align=outside,
+			ylabel=S.P (a.u),
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-2,
+			xmax=1e3,
+			xtick pos=bottom,
+			ytick pos=right,
+			% ytick pos=left,
+			font=\scriptsize,
+			mark size=4pt,    
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			% xtick pos=top,
+			line width = 0.9pt,
+		]
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}),x=t]{#3};
+		\addlegendentry{PIV}
+		\addplot [color = green!70!black,mark =none,each nth point=1]table [col sep=comma,y expr=(\thisrow{etaU}),x=t]{#4};
+		\addlegendentry{CFD}
+		\addplot [color=red,mark=none] coordinates {
+			(213,13.16337723958297)
+			(1e3,0.9999999999999994 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-4)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-4)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-4)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-2) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-2) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-2) {$f_{3}$};
+	\end{axis}
+\end{tikzpicture}
+}
+
+\newcommand{\compModePoMDva}[4]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$z_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			% xticklabels=\empty,
+			xtick pos=top,
+			line width = 1.7pt
+			]
+			\addplot graphics[xmin=-3, xmax=3, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			% \fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			% \fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			\node at (axis cs:2.6,1.7) {\scriptsize{PIV}};
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70] at (axis cs:4.1,1.7) {\scriptsize{$\zeta$}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+
+		\node [name = osaUx,anchor = south east,at={(plot1.south east)},yshift=-0.35cm] {\includegraphics[width=0.3\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.north west)},yshift=-0.3cm,xshift=0.0cm] {\scriptsize{$\psi_x$ [--]}};
+		\node [name = psi0, anchor = south,at={(osaUx.north)},yshift=-0.6cm,xshift=-1.3cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = west,at={(psi0.east)},yshift=-0.0cm,xshift=1.4cm] {\scriptsize{positive}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.22cm] {\scriptsize{0.2}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+		% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+		% \node [name = psiM05, anchor = north west,at={(osaPsix.south west)},yshift=0.2cm] {\scriptsize{-0.1 \%}};
+		% \node [name = psiM05, anchor = north east,at={(osaPsix.south east)},yshift=0.2cm] {\scriptsize{0.1 \%}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#2}}
+		\begin{axis}[
+			name = plot2,
+			anchor = north east,
+			at = {(plot1.south east)},
+			yshift = -0.65cm,
+			% xlabel={$z_r$ [--]},
+			ylabel={$y_r$ [--]},
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:7.8,0)}},
+			font = \scriptsize,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height=\ht\mygraphic, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			xticklabels=\empty,
+			ytick pos=left,
+			xtick pos=bottom,
+			tick align=outside,
+			line width = 0.85pt
+			]
+			\addplot graphics[xmin=-3, xmax=3, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			% \fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			% \fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1.0pt] (axis cs:0,0) -- (axis cs:7,0);
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			\node [color=black] at (axis cs:2.6,1.7) {\scriptsize{CFD}};
+			% \node [color=white] at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+		\end{axis}
+		\node [name=a, anchor=north west, at={(plot1.north west)}] {\scriptsize{a)}};
+		\node [name=b, anchor=north west, at={(plot2.north west)}] {\scriptsize{b)}};
+
+		\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.59\textwidth,
+			scale only axis,
+			name=plot3,
+			anchor = north west,
+			xshift=0.3cm,
+			at = {(plot1.north east)},
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			tick align=outside,
+			% ylabel=S.P (a.u),
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-5,
+			% ymax = 1e4,
+			% ymax = 1e-3,
+			xmax=1e3,
+			ytick pos=right,
+			font=\scriptsize,
+			mark size=4pt,    
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			xtick pos=top,
+			line width = 0.85pt,
+		]
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#3};
+		\addlegendentry{PIV}
+		\addplot [color = green!70!black,mark =none,each nth point=1]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#4};
+		\addlegendentry{CFD}
+		% \addplot [color=red,mark=none] coordinates {
+		% 	(213,13.16337723958297)
+		% 	(1e3,0.9999999999999994 )
+		% };
+		% \addlegendentry{Kolm.}
+		% \addplot [color=black,mark=none,solid] coordinates {
+		% 	(71, 1e-4)
+		% 	(71, 1e3)
+		% };
+		% \addplot [color=black,mark=none,dashed] coordinates {
+		% 	(142, 1e-4)
+		% 	(142, 1e3)
+		% };
+		% \addplot [color=black,mark=none,dashdotted] coordinates {
+		% 	(213, 1e-4)
+		% 	(213, 1e3)
+		% };
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-5)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-5)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-5)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-5) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-5) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-5) {$f_{3}$};
+		% \node[above left,anchor=east,black] at (axis cs:71,3e-2) {$f_{1}$};
+		% \node[above left,anchor=east,black] at (axis cs:162,3e-2) {$f_{2}$};
+		% \node[above right,anchor=west,black] at (axis cs:213,3e-2) {$f_{3}$};
+	\end{axis}
+
+	\node [name=c, anchor=north west, at={(plot3.north west)}] {\scriptsize{c)}};
+
+	% 	% \node [name = osak,anchor = south east,at={(plot2.south east)},yshift=-0.7cm,xshift=-0.1cm] {\includegraphics[width=0.26\textwidth]{\myImages/res/k_scale.png}};
+	% 	% \node [name = k, anchor = east,at={(osak.north west)},yshift=-0.1cm,xshift=-0.1cm] {\scriptsize{$k$ [-]}};
+	% 	% \node [name = psi0, anchor = south,at={(osak.north)},yshift=-0.2cm,xshift=-1.49cm] {\scriptsize{0.00}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.085cm] {\scriptsize{0.06}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.12}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.08cm] {\scriptsize{0.18}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.15cm] {\scriptsize{0.24}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=-0.2cm] {\scriptsize{0.28}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.06cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{0.6}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.228cm] {\scriptsize{1.0}};
+	% 	% \node [name = psi0, anchor = west,at={(psi0.east)},xshift=0.02cm] {\scriptsize{1.3}};
+
+	\end{tikzpicture}
+}
+\newcommand{\compModeTriD}[3]{
+	\begin{tikzpicture}
+		% \node [name = left,anchor = north,yshift=-0.0cm] {\includegraphics[width=1\textwidth]{#1}};
+		\node [name = left,anchor = north,yshift=-0.0cm] {\includegraphics[width=0.94\textwidth]{#1}};
+		\node [name = a, anchor=north west,at={(left.north west)}] {\scriptsize{a)}};
+-		\node [name = POM1, color=red, anchor = south,at={(left.north)},yshift=-0.07\textwidth,xshift=-0.15\textwidth,rotate=6] {{PoM1}};
+		\node [name = POM1, color=green, anchor = south,at={(left.north)},yshift=-0.04\textwidth,xshift=-0.0\textwidth,rotate=-23] {{PoM2}};
+		% \node [rotate = 90,name = osaUx,anchor = north,at={(left.west)},xshift=-0.cm] {\includegraphics[width=0.5\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [rotate = 90,name = osaUx,anchor = north west,at={(left.south west)},yshift=0.5cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = west,at={(osaUx.south)},yshift=0.15cm,xshift=-0.0cm] {\scriptsize{$\omega_z$ [--]}};
+		% \node [name = vorZ, anchor = west,at={(osaUx.south)},yshift=0.15cm,xshift=-0.cm] {\scriptsize{$\omega_z$ [--]}};
+		\node [rotate = 90,name = psi0, anchor = north west,at={(osaUx.south west)},yshift=0.15cm,xshift=0cm] {\scriptsize{negative}};
+		\node [rotate = 90,name = psi0, anchor = north east,at={(osaUx.south east)},yshift=0.15cm,xshift=0cm] {\scriptsize{positive}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#2}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			at = {(left.south west)},
+			yshift=-0.2cm,
+			xshift=0.9cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			% xtick pos=top,
+			xtick pos=bottom,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70,anchor=west] at (axis cs:3.83,1.7) {\scriptsize{PoM2}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+		\node[anchor=north east] at (plot1.north east) {\scriptsize{PoM1 3D mode slice}};
+		\node[anchor=north west] at (plot1.north west) {\scriptsize{b)}};
+		
+		\begin{axis}[
+			width=0.37\textwidth,
+			height = 0.225\textwidth,
+			scale only axis,
+			name=plot4,
+			anchor = north west ,
+			xshift=0.3cm,
+			at = {(plot1.north east)},
+			% xlabel=frequency (Hz),
+			tick align=outside,
+			% ylabel=S.P (a.u),
+			xlabel={$f$ [Hz]},
+			ylabel={$E$ [a.u]},
+			ymode=log,
+			xmode=log,
+			ymax = 200,
+			xmin = 1,
+			ymin = 1e-5,
+			xmax=1e3,
+			ytick pos=right,
+			font=\scriptsize,
+			mark size=4pt,    
+			% legend style={at={(axis cs:1.5,2e-1)},anchor=north west},
+			legend style={anchor=south west},
+			legend pos=south west,
+			smooth,
+			xtick pos=bottom,
+			line width = 0.85pt,
+		]
+		\addplot [color = blue,mark =none]table [col sep=comma,y expr=(\thisrow{etaU}/10)^2,x=t]{#3};
+		\addlegendentry{3D CFD}
+		\addplot [color=red,mark=none] coordinates {
+			(71,26.282891182634373)
+			(333,2 )
+		};
+		\addlegendentry{Kolm.}
+		\addplot [color=orange,mark=none] coordinates {
+			(333,2)
+			(1e3,0.07385207399999995)
+		};
+		\addlegendentry{Kraich.}
+		\addplot [color=black,mark=none,solid] coordinates {
+			(71, 1e-5)
+			(71, 1e3)
+		};
+		\addplot [color=black,mark=none,dashed] coordinates {
+			(142, 1e-5)
+			(142, 1e3)
+		};
+		\addplot [color=black,mark=none,dashdotted] coordinates {
+			(213, 1e-5)
+			(213, 1e3)
+		};
+		\node[above left,anchor=east,black] at (axis cs:71,3e-5) {$f_{1}$};
+		\node[above left,anchor=east,black] at (axis cs:162,3e-5) {$f_{2}$};
+		\node[above right,anchor=west,black] at (axis cs:213,3e-5) {$f_{3}$};
+		\end{axis}
+		\node[anchor=north west] at (plot4.north west) {\scriptsize{c)}};
+	\end{tikzpicture}
+}
+
+
+\newcommand{\reconTwo}[2]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			%~ at = {(left.south west)},
+			yshift=-0.2cm,
+			xshift=0.9cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			% xtick pos=top,
+			xtick pos=bottom,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+            
+            \node[anchor=north west] at (rel axis cs:0.01,0.99) {a)};
+			% \draw [black,dashdotted,line width = 1pt] (axis cs:0,0) -- (axis cs:7,0);
+			
+			% \node at (axis cs:6.5,-1.7) {\scriptsize{CFD}};
+			% \draw [black!70,dashed,line width = 1pt] (axis cs:3.83,2) -- (axis cs:3.83,-2);
+			% \node [black!70,anchor=west] at (axis cs:3.83,1.7) {\scriptsize{PoM2}};
+			% \node  at (axis cs:6.7,0.3) {\scriptsize{$\sigma$}};
+			% \fill [black](axis cs:4,0) circle [radius=0.1];
+			% \node  at (axis cs:4.2,-0.3) {\scriptsize{p1}};
+			% \fill [black](axis cs:4.53,1.15) circle [radius=0.1];
+			% \node  at (axis cs:5,1.15) {\scriptsize{p2}};
+		\end{axis}
+
+		% \node[anchor=north east] at (plot1.north east) {\scriptsize{PoM1 3D mode slice}};
+		% \node[anchor=north west] at (plot1.north west) {\scriptsize{b)}};
+		
+		% \node [name = left,anchor = north,yshift=-0.0cm] {\includegraphics[width=1\textwidth]{#1}};
+		\node [at={(plot1.east)},name = left,anchor = west,xshift=0.05\textwidth] {\includegraphics[width=0.5\textwidth]{#2}};
+        \node[anchor=south west,font=\scriptsize] at (left.south west) {b)};
+		% \node [name = a, anchor=north west,at={(left.north west)}] {\scriptsize{a)}};
+% -		\node [name = POM1, color=red, anchor = south,at={(left.north)},yshift=-0.07\textwidth,xshift=-0.15\textwidth,rotate=6] {{PoM1}};
+		% \node [name = POM1, color=green, anchor = south,at={(left.north)},yshift=-0.04\textwidth,xshift=-0.0\textwidth,rotate=-23] {{PoM2}};
+		\node [name = osaUx,anchor = south west,at={(plot1.north)},yshift=0.1cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		% \node [rotate = 90,name = osaUx,anchor = north west,at={(left.south west)},yshift=0.5cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.west)},yshift=0.cm,xshift=-0.0cm] {\scriptsize{$\omega_z$ [--]}};
+		% \node [name = vorZ, anchor = west,at={(osaUx.south)},yshift=0.15cm,xshift=-0.cm] {\scriptsize{$\omega_z$ [--]}};
+		\node [name = psi0, anchor = south west,at={(osaUx.north west)},yshift=-0.18cm,xshift=0cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = south east,at={(osaUx.north east)},yshift=-0.18cm,xshift=0cm] {\scriptsize{positive}};
+	\end{tikzpicture}
+}
+\newcommand{\reconFourDvaD}[4]{
+	\begin{tikzpicture}
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#1}}
+		\begin{axis}[
+			name = plot1,
+			xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			%~ at = {(left.south west)},
+			yshift=-0.2cm,
+			xshift=0.9cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			xtick pos=top,
+			% xtick pos=bottom,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#1};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+            \node[anchor=north west] at (rel axis cs:0.01,0.99) {a)};
+		\end{axis}
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#2}}
+		\begin{axis}[
+			name = plot2,
+			xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			at = {(plot1.north east)},
+			yshift=-0.0cm,
+			xshift=0.2cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=right,
+			% ytick pos=left,
+			xtick pos=top,
+			% xtick pos=bottom,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#2};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+            \node[anchor=north west] at (rel axis cs:0.01,0.99) {b)};
+		\end{axis}
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#3}}
+		\begin{axis}[
+			name = plot3,
+			% xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			at = {(plot1.south west)},
+			yshift=-0.2cm,
+			% xshift=0.9cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			ytick pos=left,
+			% xtick pos=top,
+			xtick pos=bottom,
+			xticklabels=\empty,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#3};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+            \node[anchor=north west] at (rel axis cs:0.01,0.99) {c)};
+		\end{axis}
+		\node [name = osaUx,anchor = north west,at={(plot3.south)},yshift=-0.15cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		% \node [rotate = 90,name = osaUx,anchor = north west,at={(left.south west)},yshift=0.5cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.west)},yshift=0.cm,xshift=-0.0cm] {\scriptsize{$\omega_z$ [--]}};
+		% \node [name = vorZ, anchor = west,at={(osaUx.south)},yshift=0.15cm,xshift=-0.cm] {\scriptsize{$\omega_z$ [--]}};
+		\node [name = psi0, anchor = north west,at={(osaUx.south west)},yshift=0.18cm,xshift=0cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = north east,at={(osaUx.south east)},yshift=0.18cm,xshift=0cm] {\scriptsize{positive}};
+
+		\savebox\mygraphic{\includegraphics[trim = 0px 0px 0px 0px,clip,width = 0.39\textwidth]{#4}}
+		\begin{axis}[
+			name = plot4,
+			% xlabel={$x_r$ [--]},
+			ylabel={$y_r$ [--]},
+			font = \scriptsize,
+			anchor = north west,
+			at = {(plot3.north east)},
+			% yshift=-0.2cm,
+			xshift=0.2cm,
+			xtick distance=1,ytick distance=1,
+			width=\wd\mygraphic,
+			height = 0.225\textwidth,, %height= 5/3*0.5
+			enlargelimits=false,
+			scale only axis=true,
+			xticklabels=\empty,
+			tick align=outside,
+			% x label style = {at={(axis cs:3.5,-2.7)}},
+			% y label style = {at={(axis cs:-1,0)}},
+			% ytick pos=left,
+			ytick pos=right,
+			% xtick pos=top,
+			xtick pos=bottom,
+			line width = 1.7pt,
+			% ytick={100,1,0.01,0.0001},
+			]
+			\addplot graphics[xmin=0, xmax=7, ymin=-2, ymax=2,includegraphics={trim = 0px 0px 0px 0px,clip}] {#4};
+			\fill [white] (axis cs:0.001,-1.997) rectangle (axis cs:0.5,1.997);
+			\fill [black!70](axis cs:0,0) circle [radius=0.5];
+            \node[anchor=north west] at (rel axis cs:0.01,0.99) {d)};
+		\end{axis}
+		% \node [at={(plot1.east)},name = left,anchor = west,xshift=0.05\textwidth] {\includegraphics[width=0.5\textwidth]{#2}};
+	\end{tikzpicture}
+}
+
+\newcommand{\reconFourTriD}[4]{
+	\begin{tikzpicture}
+		\node [name=plot1] {\includegraphics[width=0.48\textwidth]{#1}};
+		\node [at={(plot1.north east)},name = plot2,anchor = north west,xshift=0.2cm] {\includegraphics[width=0.48\textwidth]{#2}};
+		\node [at={(plot1.south west)},name = plot3,anchor = north west,yshift=-0.2cm] {\includegraphics[width=0.48\textwidth]{#3}};
+		\node [at={(plot3.north east)},name = plot4,anchor = north west,xshift=0.2cm] {\includegraphics[width=0.48\textwidth]{#4}};
+		\node [name = osaUx,anchor = south west,at={(plot1.north)},xshift=0.3cm,yshift=0.1cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+        \node[anchor=south west,font=\scriptsize] at (plot1.south west) {a)};
+        \node[anchor=south west,font=\scriptsize] at (plot2.south west) {b)};
+        \node[anchor=south west,font=\scriptsize] at (plot3.south west) {c)};
+        \node[anchor=south west,font=\scriptsize] at (plot4.south west) {d)};
+		% \node [rotate = 90,name = osaUx,anchor = north west,at={(left.south west)},yshift=0.5cm] {\includegraphics[width=0.4\textwidth]{\myImages/res/vorZ_scale.png}};
+		\node [name = vorZ, anchor = east,at={(osaUx.west)},yshift=0.cm,xshift=-0.0cm] {\scriptsize{$\omega_z$ [--]}};
+		% \node [name = vorZ, anchor = west,at={(osaUx.south)},yshift=0.15cm,xshift=-0.cm] {\scriptsize{$\omega_z$ [--]}};
+		\node [name = psi0, anchor = south west,at={(osaUx.north west)},yshift=-0.18cm,xshift=0cm] {\scriptsize{negative}};
+		\node [name = psi0, anchor = south east,at={(osaUx.north east)},yshift=-0.18cm,xshift=0cm] {\scriptsize{positive}};
+	\end{tikzpicture}
+}

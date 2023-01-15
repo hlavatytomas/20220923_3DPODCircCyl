@@ -1,0 +1,115 @@
+
+\begin{tikzpicture}
+\begin{axis}[
+width=0.65\textwidth,
+height=4cm,
+name=demSteel,
+ylabel=${u_{x}\,\mathrm{[m\,s^{-1}]}}$,
+xlabel=${t\,\mathrm{[s]}}$,
+xmin = 0.0,
+xmax = 0.5,
+ymin = -1.4,
+ymax = 1.4,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=1,
+                /tikz/.cd
+            },
+x tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+%~ legend style ={
+                %~ at={(0.02 ,0.95)}, 
+                %~ anchor=north west, %north west
+                %~ draw=black, 
+                %~ fill=white,
+                %~ align=left,
+                %~ legend columns=1,
+                %~ font=\scriptsize%THIS SHOULD BE SMALL
+            %~ },
+legend style ={
+                at={(0.00 ,1.05)}, 
+                anchor=south west, %north west
+                draw=black, 
+                fill=white,
+                align=left,
+                legend columns=3,
+                %~ font=\scriptsize%THIS SHOULD BE SMALL
+                font=\small%THIS SHOULD BE SMALL
+            },
+%~ smooth,
+]
+\addplot+ [mark=none,orange,style=solid,thick]table [x={time}, y={vel}] {\myGraphs/demSteel/python.dat};
+\addlegendentry{surrogate model}
+\addplot+ [mark=none,blue,style=solid,thick]table [x={t}, y={velX}] {\myGraphs/demSteel/HFDIB_Steel.dat};
+\addlegendentry{HFDIB-DEM}
+\addplot+ [mark=none,black,style=dotted,thick]table [x={time}, y={vel}] {\myGraphs/demSteel/Exp_1MOD.dat};
+\addlegendentry{exp. \cite{hagemeier21}}
+\addplot+ [mark=none,black,style=dotted,thick]table [x={time}, y={vel}] {\myGraphs/demSteel/Exp_2MOD.dat};
+\addplot+ [mark=none,black,style=dotted,thick]table [x={time}, y={vel}] {\myGraphs/demSteel/Exp_3MOD.dat};
+\end{axis}
+
+\begin{axis}[
+width=0.65\textwidth,
+height=4cm,
+at=(demSteel.below south),anchor=north,
+name=demPTFE,
+ylabel=${u_{x}\,\mathrm{[m\,s^{-1}]}}$,
+xlabel=${t\,\mathrm{[s]}}$,
+xmin = 0.0,
+xmax = 0.7,
+ymin = -0.9,
+ymax = 0.9,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=1,
+                /tikz/.cd
+            },
+x tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+legend style ={
+                at={(0.02 ,0.95)}, 
+                anchor=north west, %north west
+                draw=black, 
+                fill=white,
+                align=left,
+                legend columns=1,
+                font=\scriptsize%THIS SHOULD BE SMALL
+            },
+%~ smooth,
+]
+\addplot+ [mark=none,orange,style=solid,thick]table [x={time}, y={vel}] {\myGraphs/demPTFE/python10.dat};
+\addplot+ [mark=none,blue,style=solid,thick]table [x={t}, y={velX}] {\myGraphs/demPTFE/HFDIB_PTFE.dat};
+\addplot+ [mark=none,black,style=dotted,thick,]table [x={time}, y={vel}] {\myGraphs/demPTFE/Case1VyMOD.dat};
+\addplot+ [mark=none,black,style=dotted,thick,]table [x={time}, y={vel}] {\myGraphs/demPTFE/Case2VyMOD.dat};
+\addplot+ [mark=none,black,style=dotted,thick,]table [x={time}, y={vel}] {\myGraphs/demPTFE/Case3VyMOD.dat};
+\end{axis}
+\node [below right=0cm and 0.15\textwidth, at=(demPTFE.south east),anchor=south west] (qualImg) {\includegraphics[height=6.0cm]{\myImages/cylinderTestV1.png}};
+\draw[<->] (0.68\textwidth,1) -- (0.84\textwidth,1) node[midway,rotate=0,above,font=\small]{
+$\begin{array}{c}
+    d_{\mathrm{cyl}} = \\
+    110\,\mathrm{mm}
+\end{array}$
+};
+\draw[<->] (0.86\textwidth,2.55) -- (0.86\textwidth,-3.3) node[midway,rotate=90,below,font=\small]{$h_{\mathrm{cyl}} = 200\,\mathrm{mm}$};
+\node [above right=0.2cm and 0.01\textwidth, at=(demPTFE.south east),anchor=south west] (sphere) {\includegraphics[height=0.12\textwidth]{\myImages/ZZ_sphere.png}};
+\draw[<->] (0.545\textwidth,-1.45) -- (0.655\textwidth,-1.45) node[midway,rotate=0,above,font=\small]{$d_{i}$};
+\draw[->, thick,font=\small] (0.55\textwidth,1)--(0.61\textwidth,1) node[right]{$y$};
+\draw[->, thick,font=\small] (0.55\textwidth,1)--(0.55\textwidth,2) node[right]{$x$};
+
+\node[left=1.0cm,anchor=east] at (demSteel.north west) {(a)};
+\node[left=1.0cm,anchor=east] at (demPTFE.north west) {(b)};
+\end{tikzpicture}

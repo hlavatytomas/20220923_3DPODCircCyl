@@ -1,0 +1,4 @@
+figures/main-figure8.pdf: 01_graphs/singValsData/singVals_U_onlyXY.dat
+figures/main-figure8.pdf: 01_graphs/singValsData/singVals_U_exp.dat
+figures/main-figure8.pdf: 01_graphs/singValsData/singVals_U_ver.dat
+figures/main-figure8.pdf: 01_graphs/singValsData/singVals_U_exp_ver.dat

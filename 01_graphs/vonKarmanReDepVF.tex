@@ -1,0 +1,161 @@
+\begin{tikzpicture}
+\begin{axis}[
+width=1.00\textwidth,
+height=8cm,
+name=vkStrouhal,
+%~ scale only axis,
+ylabel=${\Strou\,\mathrm{[-]}}$,
+%~ xlabel=${\mathrm{Re}\,\mathrm{[-]}}$,
+%~ xmajorgrids,
+xmin = 0.0,
+xmax = 550.0,
+ymin= 0.1,
+ymax=0.24,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+xticklabels={,,},
+legend style ={
+                at={(0.99,0.02)}, 
+                %~ anchor=north,
+                anchor=south east,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=1,
+                font=\small
+            },
+%~ %cycle list name=exotic,
+]
+
+%~ \addplot+ [only marks,mark=*,red,style=solid,thick]table [x={Re}, y={Sr_CFD}] {Sr_Velocity_Results_CFD};
+%~ \addplot+ [mark=*,red,style=solid,thick]table [x={Re}, y={Sr_CFD}] {Sr_Velocity_Results_CFD};
+\addplot [color=blue,mark=*,thick] table [x={Re}, y={Sr_CFD}] {\myGraphs/vonKarmanStrouhal/Sr_Velocity_Results_CFD};
+\addlegendentry{${\mathrm{CFD}}^{}$}
+%~ \addplot+ [only marks,mark=square,green,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB};
+%~ \addplot+ [mark=square,green,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDTrue};
+\addplot [color=red!85!black,mark=*,thick,draw=red] table [x={Re}, y={Sr}] {\myGraphs/vonKarmanStrouhal/Sr_Velocity_Results_HFDIB_SDTrue};
+\addlegendentry{${\mathrm{HFDIB-}\sigma}^{}$}
+%~ \addplot+ [mark=diamond,cyan,style=solid,thick] table [x={Re}, y={Sr}] {Sr_Velocity_Results_HFDIB_SDFalse};
+\addplot [color=brown,mark=*,thick,draw=brown!70!black] table [x={Re}, y={Sr}] {\myGraphs/vonKarmanStrouhal/Sr_Velocity_Results_HFDIB_SDFalse};
+\addlegendentry{${\mathrm{HFDIB-}\tilde{\sigma}}^{}$}
+%~ %===========================================================================================
+\plot [name path=bottom,gray,smooth,forget plot]table [x={Re}, y={Sr_BotLine}] {\myGraphs/vonKarmanStrouhal/1966_Lienhart_Botline};
+%~ \addlegendentry{none}
+\plot [name path=top,gray,smooth,forget plot] table [x={Re}, y={Sr_TopLine}] {\myGraphs/vonKarmanStrouhal/1966_Lienhart_TopLine};
+%~ \addlegendentry{none}
+\addplot[fill=gray,opacity=0.2] fill between[of=bottom and top];
+\addlegendentry{{\citet{lienhard1966}\textsuperscript{*}}};
+%~ \node[anchor=south east,font=\small,align=right] at (rel axis cs: 0.72 ,0.01) {*Area based on data from \citep{kovasznay1949,roshko1953,roshko1955,tritton1959}\\ reproduced from \citep{lienhard1966}};
+\node[anchor=north west,font=\small,align=left] at (rel axis cs: 0.01 ,0.99) {*Area based on data from \citep{kovasznay1949,roshko1953,roshko1955,tritton1959}\\ reproduced from \citep{lienhard1966}};
+%~ %===========================================================================================
+
+%~ %===========================================================================================
+\addplot [color=black, only marks,mark=square] table [x={Re}, y={Exp}] {\myGraphs/vonKarmanStrouhal/1953_Anatol_Sr};
+\addlegendentry{\citet{roshko1953}}
+\addplot [color=black, only marks,mark=diamond] table [x={RE}, y={Sr_others}] {\myGraphs/vonKarmanStrouhal/1966_Lienhart_Sr};
+\addlegendentry{{\citet{lienhard1966}\textsuperscript{$\dagger$}}}
+\node[anchor=south east,font=\small,align=right] at (rel axis cs: 0.71 ,0.01) {$\dagger$Older data from \citep{relf1921,relf1925,tyler1931}\\ reproduced from \citep{lienhard1966}};
+\addplot [color=black, only marks, mark=o] table [x={Re}, y={Sr}] {\myGraphs/vonKarmanStrouhal/1994_Norberg_Sr};
+\addlegendentry{\citet{norberg1994}}
+%~ %===========================================================================================
+\end{axis}
+\begin{axis}[
+width=1.00\textwidth,
+height=8cm,
+name=vkDragAndLift,
+at=(vkStrouhal.below south),anchor=above north,
+%~ scale only axis,
+ylabel=${\Lift,\Drag\,\mathrm{[-]}}$,
+xlabel=${\Rey\,\mathrm{[-]}}$,
+%~ xmajorgrids,
+xmin = 0.0,
+xmax = 550.0,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=2,
+                /tikz/.cd
+            },
+legend style ={
+                at={(0.99,0.02)}, 
+                %~ anchor=north,
+                name=simLeg,
+                anchor=south east,
+                draw=black, 
+                fill=white,
+                align=right,
+                legend columns=2,
+                %~ font=\scriptsize
+                font=\small
+            },
+%cycle list name=exotic,
+]
+
+% manual legend construction
+\addlegendimage{line legend,thick,black,mark=square*}
+\addlegendentry{$\Drag$ }
+\addlegendimage{line legend,thick,black,mark=*}
+\addlegendentry{$\Lift$ }
+\addlegendimage{line legend,thick,blue}
+\addlegendentry{$\mathrm{CFD}$ }
+\addlegendimage{line legend,thick,red}
+\addlegendentry{$\mathrm{HFDIB}-\sigma$}
+\addlegendimage{line legend,thick,brown!70!black}
+\addlegendentry{$\mathrm{HFDIB}-\tilde{\sigma}$}
+\addlegendimage{line legend,thick,black,dashed}
+\addlegendentry{\citet{fiabane2011}}
+\addlegendimage{line legend,thick,black,dashdotted}
+\addlegendentry{\citet{sirisup2004}}
+
+\addplot [color=blue,mark=*,thick] table [x={Re}, y={Cl_CFD}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl};
+\addplot [color=blue,mark=square*,thick] table [x={Re}, y={Cd_CFD}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl};
+
+\addplot [color=red!85!black,mark=*,thick,draw=red]table [x={Re}, y={Cl_HFDIB}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl-f-Internal_SDTrue};
+\addplot [color=red!85!black,mark=square*,thick,draw=red] table [x={Re}, y={Cd_HFDIB}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl-f-Internal_SDTrue};
+
+\addplot [color=brown,mark=*,thick,draw=brown!70!black]table [x={Re}, y={Cl_HFDIB}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl-f-Internal_SDFalse};
+\addplot [color=brown,mark=square*,thick,draw=brown!70!black] table [x={Re}, y={Cd_HFDIB}] {\myGraphs/vonKarmanDragAndLift/00_CompleteFile_Cd_Cl-f-Internal_SDFalse};
+
+%===========================================================================================
+\addplot [only marks,black,mark=diamond] table [x={Re}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/1972_Jordan};\label{vkJordanCD}
+\addplot [only marks,black,mark=diamond*] table [x={Re}, y={Cl}] {\myGraphs/vonKarmanDragAndLift/Papers/1972_Jordan};\label{vkJordanCL}
+%===========================================================================================
+\addplot [only marks,black,mark=square]table [x={Re}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/1995_Henderson};\label{vkHandersonCD}
+%===========================================================================================
+\addplot [color=black,mark=*,thick,dashdotted] table [x={Re}, y={Cl}] {\myGraphs/vonKarmanDragAndLift/Papers/2003_Sirsup_DNS};
+\addplot [color=black,mark=square*,thick,dashdotted] table [x={Re}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/2003_Sirsup_DNS};
+%===========================================================================================
+\addplot  [only marks,black,mark=triangle] table [x={Re}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/1921_Wieselsberger};\label{vkWieselsbergerCD}
+%===========================================================================================
+%===========================================================================================
+\addplot [color=black,mark=*,thick,dashed]table [x={Re}, y={Cl}] {\myGraphs/vonKarmanDragAndLift/Papers/2016_Fiabane};
+\addplot [color=black,mark=square*,thick,dashed]table [x={RE}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/2016_Fiabane};
+%===========================================================================================
+\addplot [only marks,black,mark=o] table [x={Re}, y={Cd}] {\myGraphs/vonKarmanDragAndLift/Papers/1914_RELF};\label{vkRelfCD}
+
+\node [draw,fill=white,anchor=west,font=\small] (cdLeg) at (rel axis cs: 0.01,0.6) {\shortstack[l]
+{
+\ref{vkJordanCD} \citet{jordan1972} \hspace{0.1cm}
+\ref{vkHandersonCD} \citet{henderson1995} \\ 
+\ref{vkWieselsbergerCD} \citet{wieselsberger1921} \hspace{0.1cm}
+\ref{vkRelfCD} \citet{relf1921} 
+}};
+\node [below right=-0.05cm and 0.00cm,at=(cdLeg.south west),font=\small] {$\Drag$ exp.};
+
+\node [draw,fill=white,anchor=south west,font=\small] (clLeg) at (rel axis cs: 0.14,0.02) {\shortstack[l]
+{
+\ref{vkJordanCL} \citet{jordan1972}
+}};
+\node [above right=-0.05cm and 0.00cm,at=(clLeg.north west),font=\small] {$\Lift$ exp.};
+
+\end{axis}
+\node [above left=-0.05cm and 0.00cm,at=(simLeg.north east),font=\small] {simulations};
+\node[left=1.0cm,anchor=east] at (vkStrouhal.north west) {(a)};
+\node[left=1.0cm,anchor=east] at (vkDragAndLift.north west) {(b)};
+\end{tikzpicture}

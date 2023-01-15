@@ -1,0 +1,31 @@
+\clearpage
+\section{Introduction}
+\label{sec:intro}
+The flow in the wake behind a circular cylinder in a cross-flow is one of the canonical cases of fluid mechanics. Thus, extensive amount of information on it may be found from the experimental \citep{kovasznay1949,roshko1953,roshko1955,tritton1959,tyler1931,relf1925,relf1921,norberg1994,wieselsberger1921,lienhard1966,jordan1972,williamson1989,williamson1996,prasad1997}, theoretical \citep{schatzmann1981,saffman1982,crowdy2017,williamson1996} and computational \citep{braza1986,sirisup2004,henderson1995,fiabane2011} point of view. Nevertheless, understanding the flow behind a circular cylinder, or a bluff body in general, poses a great challenge. The complexity of bluff body wakes arises from the fact that they are governed by interactions of three shear layers
+\begin{inparaenum}[(i)]
+        \item a boundary layer,
+        \item a separating free shear layer, and
+        \item a wake \citep{williamson1996}. 
+\end{inparaenum}
+
+The ongoing developments in numerical methods, available computing power and experimental techniques enable more and more detailed studies of the phenomenon in question. However, modern methods such as particle image velocimetry (PIV) or computational fluid dynamics (CFD) generate vast and complex high-dimensional data. The abundance of raw information on the studied problem provokes the need for a methodology allowing to sort the data in {such} a manner {that} the experimental or numerical results may be interpreted in a way shadding light on the studied problem principles.
+
+One of the purely data-based techniques for flow field analysis is the proper orthogonal decomposition (POD). For a given dataset, POD provides an orthonormal basis that is, in the least squares sense, optimally ordered with respect to the amount of variance in the original data it represents \citep{isoz2019}. Furthermore, if the studied data correspond to the velocity fluctuations, POD optimally captures the flow turbulence kinetic energy ($k$) and the generated basis vectors are ordered by the amount of $k$ they capture \citep{taira2020}. POD was first introduced by \citet{Pearson1901} more than a century ago. However, due to its importance in a variety of fields, it was reinvented multiple times as, e.g., 
+\begin{inparaenum}[(i)]
+        \item principal component analysis \citep{hoetelling1935,jollife2014} and total least squares estimation in statistics \citep{vanHuffel2013,schaffrin2006,leyang2012},
+        \item empirical orthogonal functions in meteorology \citep{lorenzxy}, or
+        \item or Karhunen-Loeve decomposition in signal processing \citep{karhunen1946,loeve1946}. 
+\end{inparaenum}
+
+Besides being able to effectively identify dominant flow features, POD has been proven to be an effective method for compressing and summarizing large datasets in a way that the most useful information on the physical processes may be extracted \citep{kostas2005,feng2010}. Consequently, POD has been applied to analyze many problems of fluid mechanics, e.g. flow past a backward-facing step \citep{kostas2005,kostas2002}, flow over different bottom-mounted ribs \citep{fraga2021}, flow behind a fixed circular cylinder \citep{venturi2006,ma2000,ma2003,feng2010} or a circular cylinder undergoing vortex-induced vibrations \citep{riches2018}.
+
+In the present paper, we concentrate on the case of the flow in the wake behind a {fixed} circular cylinder in a cross-flow at Reynolds number of $4815$. An experimental and numerical investigations of the problem are coupled in order to enable a detailed study of the flow dynamics via a validated proper orthogonal decomposition analysis of the fully three-dimensional numerical data. The experiment is similar as published in \citep{uruba2020,uruba2020a}, i.e. it is based on the particle image velocimetry (PIV) and designed to bring detailed data on flow dynamics. In particular, the time-resolved PIV and stereo-PIV are used to provide information on flow on selected planes inside the experimental test-section. The simulation corresponds as well as possible to the employed experimental set up. The approach of choice for the turbulence modeling is the $k-\omega$ shear stress transport (SST) detached eddy simulation (DES) model based on the work {of} \citet{strelets2001}. Although the used turbulence model is a hybrid large eddy simulation (LES)-Reynolds-averaged Navier-Stokes (RANS) model, the computational mesh is prepared in a way that the selected modeling approach provides high-resolution data in the zone of interest corresponding to the measured region.
+
+The main contribution of the present work lies in {the} availability of directly comparable experimental and numerical data for both the statistical and dynamic flow properties. First, the simulation is, similarly to \citep{jie2016,gonzalez2019}, validated against the experimental data with respect to
+\begin{inparaenum}[(i)]
+        \item time-averaged quantities, and
+        \item spectra of velocity components at given locations.
+\end{inparaenum}
+Next, the results of POD analysis of numerical and experimental data on the measured planes were compared to each other. Such a comparison allowed us to validate the predicted coherent flow structures and their energies, leading to {a} validated fully three-dimensional (3D) numerical POD results. Finally, the 3D POD data are used to draw conclusions on the studied flow behavior.
+% Note (MI): I think this remains usable even with the small change in the article structure
+

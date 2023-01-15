@@ -1,0 +1,6 @@
+figures/main-figure4.pdf: 01_graphs/msIndData/expLineResV1.dat
+figures/main-figure4.pdf: 01_graphs/msIndData/expLineResV1.dat
+figures/main-figure4.pdf: 01_graphs/msIndData/bCyl_l_3_U.csv
+figures/main-figure4.pdf: 01_graphs/msIndData/expLineResKV1.dat
+figures/main-figure4.pdf: 01_graphs/msIndData/expLineResKV1.dat
+figures/main-figure4.pdf: 01_graphs/msIndData/Znorm_kMean.csv

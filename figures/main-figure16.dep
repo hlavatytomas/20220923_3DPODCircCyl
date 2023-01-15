@@ -1,0 +1,2 @@
+figures/main-figure16.pdf: 01_graphs/spctraData/modes/spectra/spctraTop7.csv
+figures/main-figure16.pdf: 01_graphs/spctraData/modes/spectraEta_U/spctraTop6.csv

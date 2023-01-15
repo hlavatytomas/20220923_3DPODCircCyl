@@ -1,0 +1,199 @@
+
+\begin{tikzpicture}
+
+\node[anchor=south east] (anchor) at (0,0) {};
+
+\begin{axis}
+[
+name=volEvolFalse,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd
+            },
+ylabel=${V^{\mathrm{o}}/V_{i}\cdot 10^{3}\,\mathrm{[-]}}$,
+xlabel=${\tilde{t}_{\mathrm{c}}\,\mathrm{[-]}}$,
+title={HFDIB$-\tilde{\sigma}$},
+ymin = 0.0,
+ymax = 9,
+xmin = 0.0,
+xmax = 1.0,
+xtick={0,0.5,1.0},
+]
+
+\addplot [mark=none,black,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaFalse/totalForce_32NoRefFiltered_05};
+\label{32NoRef}
+\addplot [mark=none,blue,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaFalse/totalForce_16Ref1Filtered_05};
+\label{16Ref1}
+\addplot [mark=none,green,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaFalse/totalForce_8Ref2Filtered_05};
+\label{8Ref2}
+\addplot [mark=none,red,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaFalse/totalForce_4Ref3Filtered_05};
+\label{4Ref3}
+
+
+\end{axis}
+
+
+\begin{axis}
+[
+name=velEvolFalse,
+at=(volEvolFalse.below south),anchor=above north,below=0.1cm,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd
+            },
+%~ ylabel=${{v}_{y}/|v_{0}|\,\mathrm{[-]}}$,
+ylabel=${{u}_{y}/|u_{0}|\,\mathrm{[-]}}$,
+xlabel=${{t}/t_{c}\,\mathrm{[-]}}$,
+ylabel style={yshift=-0.75em},
+xmin = -1,
+xmax = 2,
+legend columns = 3,
+legend style = {at={(-0.2,-0.5)},anchor = south},
+smooth,
+]
+
+\addplot [mark=none,black,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaFalse/LinVelocity_red_32NoRef};
+\addplot [mark=none,blue,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaFalse/LinVelocity_red_16Ref1};
+\addplot [mark=none,green,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaFalse/LinVelocity_red_8Ref2};
+\addplot [mark=none,red,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaFalse/LinVelocity_red_4Ref3};
+\end{axis}
+
+\begin{axis}
+[
+name=distEvolFalse,
+at=(velEvolFalse.below south),anchor=above north,below=0.1cm,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd
+            },
+ylabel={ ${h_{\bm{x}_{i}}/r_{i}\,\mathrm{[-]}}$},
+xlabel=${{t}/t_{c}\,\mathrm{[-]}}$,
+xmin = -1,
+xmax = 2,
+ymax = 2.0,
+ytick={1.0,2.0},
+]
+
+\addplot [mark=none,red,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaFalse/COM_Evaluation_32NoRef};
+\addplot [mark=none,blue,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaFalse/COM_Evaluation_16Ref1};
+\addplot [mark=none,green,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaFalse/COM_Evaluation_8Ref2};
+\addplot [mark=none,black,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaFalse/COM_Evaluation_4Ref3};
+\end{axis}
+
+% TRUE
+\begin{axis}
+[
+name=volEvolTrue,
+at=(volEvolFalse.east),anchor=left of west=0.0cm and 0.0cm,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd,
+            },
+ylabel=\phantom{${V^{\mathrm{o}}/V_{i}\cdot 10^{3}\,\mathrm{[-]}}$},
+xlabel=${\tilde{t}_{\mathrm{c}}\,\mathrm{[-]}}$,
+title={HFDIB$-\sigma$},
+ymin = 0.0,
+ymax = 9,
+xmin = 0.0,
+xmax = 1.0,
+xtick={0,0.5,1.0},
+]
+
+\addplot [mark=none,black,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaTrue/totalForce_32NoRefFiltered_05};
+\label{32NoRef}
+\addplot [mark=none,blue,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaTrue/totalForce_16Ref1Filtered_05};
+\label{16Ref1}
+\addplot [mark=none,green,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaTrue/totalForce_8Ref2Filtered_05};
+\label{8Ref2}
+\addplot [mark=none,red,style=solid]table [x expr=(\thisrow{Simulation_Time}*1e3-3)/2.7, y expr=\thisrow{IntersectionVolume}/1.563411456e-06*1e3] {\myGraphs/contactTest/sdBasedLambdaTrue/totalForce_4Ref3Filtered_05};
+\label{4Ref3}
+
+
+\end{axis}
+
+
+\begin{axis}
+[
+name=velEvolTrue,
+at=(volEvolTrue.below south),anchor=above north,below=0.1cm,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd,
+            },
+ylabel style={yshift=-0.75em},
+xlabel=${{t}/t_{c}\,\mathrm{[-]}}$,
+xmin = -1,
+xmax = 2,
+legend columns = 3,
+legend style = {at={(-0.2,-0.5)},anchor = south},
+smooth,
+]
+
+\addplot [mark=none,black,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaTrue/LinVelocity_red_32NoRef};
+\addplot [mark=none,blue,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaTrue/LinVelocity_red_16Ref1};
+\addplot [mark=none,green,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaTrue/LinVelocity_red_8Ref2};
+\addplot [mark=none,red,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=\thisrow{DataY}/1.27477] {\myGraphs/contactTest/sdBasedLambdaTrue/LinVelocity_red_4Ref3};
+\end{axis}
+
+\begin{axis}
+[
+name=distEvolTrue,
+at=(velEvolTrue.below south),anchor=above north,below=0.1cm,
+width=0.36\textwidth,
+height=0.36\textwidth,
+y tick label style={
+                /pgf/number format/.cd,
+                fixed,
+                fixed zerofill,
+                precision=0,
+                /tikz/.cd
+            },
+xlabel=${{t}/t_{c}\,\mathrm{[-]}}$,
+xmin = -1,
+xmax = 2,
+ymax = 2.0,
+ytick={1.0,2.0},
+]
+
+\addplot [mark=none,black,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaTrue/COM_Evaluation_32NoRef};
+\addplot [mark=none,blue,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaTrue/COM_Evaluation_16Ref1};
+\addplot [mark=none,green,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaTrue/COM_Evaluation_8Ref2};
+\addplot [mark=none,red,style=solid]table [x expr=\thisrow{t}*1e3/2.7-1.1, y expr=(\thisrow{DataY}+0.0120)/0.0144*2.0] {\myGraphs/contactTest/sdBasedLambdaTrue/COM_Evaluation_4Ref3};
+\end{axis}
+
+
+\node[anchor=north west,xshift=0.4cm,yshift=0.1cm] (img3200) at (volEvolTrue.right of north east) {\includegraphics[width=0.25\textwidth]{\myGraphs/contactTest/fallingSphere32_0V3.png}};
+\node[font=\small,anchor=south,yshift=-0.4em] at (img3200.north) {\ref{32NoRef}16 cells/$r_{i}$, ref. 0};
+\node[anchor=north,yshift=-0.7em] (img1601) at (img3200.south) {\includegraphics[width=0.25\textwidth]{\myGraphs/contactTest/fallingSphere16_1V3.png}};
+\node[font=\small,anchor=south,yshift=-0.4em] at (img1601.north) {\ref{16Ref1} 8 cells/$r_{i}$, ref. 1};
+\node[anchor=north,yshift=-0.7em] (img0802) at (img1601.south) {\includegraphics[width=0.25\textwidth]{\myGraphs/contactTest/fallingSphere8_2V3.png}};
+\node[font=\small,anchor=south,yshift=-0.4em] at (img0802.north) {\ref{8Ref2} 4 cells/$r_{i}$, ref. 2};
+\node[anchor=north,yshift=-0.7em] (img0403) at (img0802.south) {\includegraphics[width=0.25\textwidth]{\myGraphs/contactTest/fallingSphere4_3V3.png}};
+\node[font=\small,anchor=south,yshift=-0.4em] at (img0403.north) {\ref{4Ref3} 2 cells/$r_{i}$, ref. 3};
+
+\end{tikzpicture}

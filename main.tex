@@ -1,0 +1,279 @@
+\documentclass[number,review]{elsarticle}
+
+%%%%%%%%% TO DO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TOMAS
+% -> correct the references (there are missing fields - see e.g. 
+%    taira2020)
+% -> go through the notation of absolute and relative coordinates, is this
+%    consistent throughout the article? (x,y,z) vs (x_{r},y_{r},z_{r})
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Elsevier Journal}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+%~ \bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% CUSTOM PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+\definecolor{sPointColor}{HTML}{d300ff}
+\definecolor{pPointColor}{HTML}{ff0081}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{amsmath,bm,amsfonts,mathtools,amssymb}
+\usepackage[toc,page]{appendix}
+\usepackage{array}
+\usepackage{paralist}
+\usepackage{booktabs,multirow}
+\usepackage{subcaption}
+
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.9}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{positioning}
+\usetikzlibrary{matrix}
+\usetikzlibrary{external}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
+\usepgfplotslibrary{fillbetween}
+
+%externalize
+\usepgfplotslibrary{external} 
+%~ % \tikzexternalize
+\tikzexternalize[prefix=figures/]
+
+
+% Style to select only points from #1 to #2 (inclusive)
+\pgfplotsset{select coords between index/.style 2 args={
+    x filter/.code={
+        \ifnum\coordindex<#1\def\pgfmathresult{}\fi
+        \ifnum\coordindex>#2\def\pgfmathresult{}\fi
+    }
+}}
+
+
+\pgfplotsset{
+  log x ticks with fixed point/.style={
+      xticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  },
+  log y ticks with fixed point/.style={
+      yticklabel={
+        \pgfkeys{/pgf/fpu=true}
+        \pgfmathparse{exp(\tick)}%
+        \pgfmathprintnumber[fixed relative, precision=3]{\pgfmathresult}
+        \pgfkeys{/pgf/fpu=false}
+      }
+  }
+}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+%%%% CUSTOM COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+
+% - text flow
+\newtheorem{remr}{Remark}
+
+\newsavebox\mygraphic
+
+% - text division
+\def\myParts{03_parts}
+\def\myImages{02_images}
+\def\myGraphs{01_graphs}
+\input{\myGraphs/compModesV1.tex}
+
+
+% - math operators
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareRobustCommand\myTikzDot{\tikz \node[mark size=2pt,color=black!50!white] at (1ex,2ex) {\pgfuseplotmark{*}};}
+\DeclareRobustCommand\myTikzTriangle{\tikz \node[mark size=2pt,color=black] at (1ex,2ex) {\pgfuseplotmark{triangle*}};}
+
+% - math symbols
+\newcommand{\OmegaS}{\Omega_{\mathrm{s}}}                               %solid domain
+\newcommand{\OmegaF}{\Omega_{\mathrm{f}}}                               %fluid domain
+\newcommand{\transp}{\mathrm{T}}
+% - flow symbols
+\newcommand{\Rey}{\mathrm{Re}}                                          %reynolds number
+\newcommand{\Strou}{\mathrm{Sr}}                                        %strouhal number
+\newcommand{\Drag}{\mathrm{C_{D}}}                                      %drag coefficient
+\newcommand{\Lift}{\mathrm{C_{L}}}                                      %lift coefficient
+\newcommand{\filtU}{\overline{\bm{u}}}
+\newcommand{\filtP}{\overline{\bm{p}}}
+\newcommand{\filtT}{\overline{\bm{\sigma}}}
+\newcommand{\sgsT}{\bm{\tau}}
+% - units
+\newcommand{\mUnit}{[\mathrm{M}]}                                       %mass
+\newcommand{\vUnit}{[\mathrm{L\,T^{-1}}]}                               %velocity
+\newcommand{\vAngUnit}{[\mathrm{rad\,T^{-1}}]}                          %velocity
+\newcommand{\aUnit}{[\mathrm{L\,T^{-2}}]}                               %acceleration
+\newcommand{\aAngUnit}{[\mathrm{rad\,T^{-2}}]}                          %acceleration - angular
+\newcommand{\lUnit}{[\mathrm{L}]}                                       %length
+\newcommand{\lAngUnit}{[\mathrm{rad}]}                                  %unit
+\newcommand{\fUnit}{[\mathrm{M\,L\,T^{-2}}]}                            %force
+\newcommand{\pUnit}{[\mathrm{M\,L^{-1}T^{-2}}]}                         %pressure
+\newcommand{\kPUnit}{[\mathrm{L^{2}T^{-2}}]}                            %kinematic pressure
+\newcommand{\volUnit}{[\mathrm{L^{3}}]}                                 %volume
+\newcommand{\dUnit}{[\mathrm{M\,L^{3}}]}                                %density
+\newcommand{\ndUnit}{[\mathrm{-}]}                                      %dimensionless
+\newcommand{\kViscUnit}{[\mathrm{L^{2}T^{-1}}]}                         %kinematic viscosity
+% - additional symbols
+
+% - auxiliaries (to be removed before submission)
+%~ \newcommand{\noteMI}[1]{\textcolor{red}{#1}} 
+%~ \newcommand{\noteTH}[1]{\textcolor{green}{#1}} 
+\newcommand{\noteMI}[1]{\textcolor{green}{#1}} 
+\newcommand{\noteTH}[1]{\textcolor{red}{#1}} 
+
+\newlength{\auxWidth}
+\setlength{\auxWidth}{16.5cm}%
+
+
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=black,           % color of external links
+    allcolors=black
+}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title
+{
+ Validated mathematical modeling of wake dynamics behind a circular cylinder using Proper Orthogonal Decomposition
+}
+
+\address[ITCAS]
+{
+ Institute of Thermomechanics of the Czech Academy of Sciences,
+ Dolej\v{s}kova 5, Prague 182~00, Czech Republic
+}
+
+\address[CTU]
+{
+ Czech Technical University in Prague,
+ Department of Technical Mathematics,
+ Jugoslávských partyzánů 1580, Prague 160 00, Czech Republic
+}
+
+\address[VSCHTDM]
+{
+ University of~Chemistry and Technology, Prague,
+ Department of~Mathematics,
+ Technick\'{a}~5, Prague 166~28, Czech Republic
+}
+
+% \address[VSCHT]
+% {
+%  University of~Chemistry and Technology, Prague,
+%  Department of~Chemical Engineering,
+%  Technick\'{a}~5, Prague 166~28, Czech Republic
+% }
+
+
+
+\address[ZCU]
+{
+ University of~West Bohemia, Pilsen,
+ Department of Power System Engineering,
+ Universitn\'{i}~8, Pilsen 301~00, Czech Republic
+}
+
+
+%% Group authors per affiliation:
+\author[ITCAS,CTU]{Tom\'{a}\v{s} Hlavat\'{y}}
+\author[ITCAS,VSCHTDM]{Martin Isoz\corref{cor}}
+\cortext[cor]{Corresponding author,
+tel: \mbox{+420 26605 3441}.}
+\ead{isozm@it.cas.cz}
+\ead[url]{https://www.it.cas.cz/en/d4/}
+\author[ITCAS,ZCU]{V\'{a}clav Uruba}
+\author[ITCAS]{Pavel Proch\'{a}zka}
+
+
+\begin{abstract}
+{Turbulent flow in the wake behind a circular cylinder in a cross-flow at Reynolds number of $4815$ was investigated both experimentally, utilizing a time-resolved variant of the Particle Image Velocimetry (PIV) and stereo-PIV methods, and via $k$-$\omega$\textsubscript{SST} Detached-Eddy Simulation (DES) mathematical modeling. The simulated flow statistical properties were validated via a comparison of the time-averaged measured and computed velocity and vorticity fields. To validate the flow dynamical behavior, the agreeement between the measured and computed velocity spectra was evaluated and results of the Proper Orthogonal Decomposition (POD) of experimental and simulated spatio-temporal velocity data were analyzed. All the performed validations have shown an acceptable agreement between the experiment and the simulation enabling a fully 3D POD analysis of the wake flow numerical data.}
+\end{abstract}
+
+\begin{keyword}
+3D turbulent flow\sep
+LES\sep
+DES\sep 
+proper orthogonal decomposition
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\input{\myParts/01_introductionV5.tex}
+\input{\myParts/10_problemGeomAndExpSetupV3.tex}
+\input{\myParts/20_modelV2.tex}
+\input{\myParts/30_podV2.tex}
+\input{\myParts/40_resultsAndDiscV5.tex}
+\input{\myParts/99_conclusionsV2.tex}
+
+\subsection*{Acknowledgments}
+{\small{
+The work was financially supported by the Czech Science Foundation (GA19-22173S), by the institutional support RVO:61388998, and by the Centre of Excellence for Nonlinear Dynamic Behaviour of Advanced Materials in Engineering CZ.02.1.01/0.0/0.0/15\_003/0000493 (Excellent Research Teams) in the framework of Operational Programme Research, Development and Education.
+}}
+
+\input{\myParts/AA_nomenclatureV2.tex}
+
+% \section*{References}
+
+\bibliography{references}
+
+\appendix
+
+% \input{\myParts/BB_fourierAppV2.tex}
+
+\end{document}

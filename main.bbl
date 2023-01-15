@@ -1,0 +1,449 @@
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{58}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Williamson(1996)}]{williamson1996}
+\bibinfo{author}{C.~Williamson},
+\newblock \bibinfo{title}{Vortex dynamics in the cylinder wake},
+\newblock \bibinfo{journal}{Annual Reviews of Fluid Mechanics}
+  \bibinfo{volume}{28} (\bibinfo{year}{1996}) \bibinfo{pages}{477--539}.
+%Type = Article
+\bibitem[{Chu et~al.(2021)Chu, Xia, Wang, Fan, and Yang}]{chu21}
+\bibinfo{author}{S.~Chu}, \bibinfo{author}{C.~Xia}, \bibinfo{author}{H.~Wang},
+  \bibinfo{author}{Y.~Fan}, \bibinfo{author}{Z.~Yang},
+\newblock \bibinfo{title}{Three-dimensional spectral proper orthogonal
+  decomposition analyses of the turbulent flow around a seal-vibrissa-shaped
+  cylinder},
+\newblock \bibinfo{journal}{Physics of Fluids} \bibinfo{volume}{33}
+  (\bibinfo{year}{2021}) \bibinfo{pages}{025106}.
+%Type = Article
+\bibitem[{Choi et~al.(2008)Choi, Jeon, and Kim}]{choi2008}
+\bibinfo{author}{H.~Choi}, \bibinfo{author}{W.-P. Jeon},
+  \bibinfo{author}{J.~Kim},
+\newblock \bibinfo{title}{Control of flow over a bluff body},
+\newblock \bibinfo{journal}{Annual Review of Fluid Mechanics}
+  \bibinfo{volume}{40} (\bibinfo{year}{2008}) \bibinfo{pages}{113--139}.
+%Type = Article
+\bibitem[{Isoz(2019)}]{isoz2019}
+\bibinfo{author}{M.~Isoz},
+\newblock \bibinfo{title}{{POD-DEIM} based model order reduction for speed-up
+  of flow parametric studies},
+\newblock \bibinfo{journal}{Ocean Engineering} \bibinfo{volume}{186}
+  (\bibinfo{year}{2019}) \bibinfo{pages}{106083}.
+%Type = Article
+\bibitem[{Taira et~al.(2020)Taira, Hemati, Brunton, Sun, Duraisamy, Bagheri,
+  Dawson, and Yeh}]{taira2020}
+\bibinfo{author}{K.~Taira}, \bibinfo{author}{M.~Hemati},
+  \bibinfo{author}{S.~Brunton}, \bibinfo{author}{Y.~Sun},
+  \bibinfo{author}{K.~Duraisamy}, \bibinfo{author}{S.~Bagheri},
+  \bibinfo{author}{S.~Dawson}, \bibinfo{author}{C.~Yeh},
+\newblock \bibinfo{title}{Modal analysis of fluid flows: Applications and
+  outlook},
+\newblock \bibinfo{journal}{AIAA Journal} \bibinfo{volume}{58}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{998--1022}.
+%Type = Article
+\bibitem[{Pearson(1901)}]{Pearson1901}
+\bibinfo{author}{K.~Pearson},
+\newblock \bibinfo{title}{On lines and planes closest fit to systems of points
+  in space},
+\newblock \bibinfo{journal}{Phil. Mag.} \bibinfo{volume}{2}
+  (\bibinfo{year}{1901}) \bibinfo{pages}{559--572}.
+%Type = Article
+\bibitem[{Hoetelling(1935)}]{hoetelling1935}
+\bibinfo{author}{H.~Hoetelling},
+\newblock \bibinfo{title}{Simplified calculation of principal component
+  analysis},
+\newblock \bibinfo{journal}{Psychometrica} \bibinfo{volume}{1}
+  (\bibinfo{year}{1935}) \bibinfo{pages}{27--35}.
+%Type = Inbook
+\bibitem[{Jolliffe(2014)}]{jollife2014}
+\bibinfo{author}{I.~Jolliffe}, \bibinfo{title}{Principal Component Analysis},
+  \bibinfo{publisher}{John Wiley \& Sons, Ltd}, \bibinfo{year}{2014}.
+%Type = Book
+\bibitem[{van Huffel and Lemmerling(2013)}]{vanHuffel2013}
+\bibinfo{author}{S.~van Huffel}, \bibinfo{author}{P.~Lemmerling},
+  \bibinfo{title}{Total Least Squares and Errors-in-Variables Modeling:
+  Analysis, Algorithms and Applications}, SpringerLink : B{\"u}cher,
+  \bibinfo{publisher}{Springer Netherlands}, \bibinfo{year}{2013}.
+%Type = Article
+\bibitem[{Schaffrin(2006)}]{schaffrin2006}
+\bibinfo{author}{B.~Schaffrin},
+\newblock \bibinfo{title}{A note on constrained total least-squares
+  estimation},
+\newblock \bibinfo{journal}{Applications of Linear Algebra}
+  \bibinfo{volume}{417} (\bibinfo{year}{2006}) \bibinfo{pages}{245--258}.
+%Type = Article
+\bibitem[{Leyang(2012)}]{leyang2012}
+\bibinfo{author}{W.~Leyang},
+\newblock \bibinfo{title}{Properties of the total least squares estimation},
+\newblock \bibinfo{journal}{Geodesy and Geodynamics} \bibinfo{volume}{3}
+  (\bibinfo{year}{2012}) \bibinfo{pages}{39--46}.
+%Type = Techreport
+\bibitem[{Lorenz(shed)}]{lorenzxy}
+\bibinfo{author}{E.~N. Lorenz}, \bibinfo{title}{Empirical orthogonal functions
+  and statistical weather prediction}, \bibinfo{type}{Technical Report}, MIT,
+  \bibinfo{year}{unpublished}.
+%Type = Article
+\bibitem[{Karhunen(1946{\natexlab{a}})}]{karhunen1946}
+\bibinfo{author}{K.~Karhunen},
+\newblock \bibinfo{title}{Zur spektraltheorie stochastischer prozesse},
+\newblock \bibinfo{journal}{Annales Academiae scientiarum Fennicae. Series A.
+  1, Mathematica-physica} \bibinfo{volume}{34}
+  (\bibinfo{year}{1946}{\natexlab{a}}) \bibinfo{pages}{7}.
+%Type = Article
+\bibitem[{Karhunen(1946{\natexlab{b}})}]{loeve1946}
+\bibinfo{author}{M.~Karhunen},
+\newblock \bibinfo{title}{Fonctions aleatoire de second ordre},
+\newblock \bibinfo{journal}{Revue} \bibinfo{volume}{48}
+  (\bibinfo{year}{1946}{\natexlab{b}}) \bibinfo{pages}{195--206}.
+%Type = Article
+\bibitem[{Kostas et~al.(2005)Kostas, Soria, and Chong}]{kostas2005}
+\bibinfo{author}{J.~Kostas}, \bibinfo{author}{J.~Soria},
+  \bibinfo{author}{M.~Chong},
+\newblock \bibinfo{title}{A comparison between snapshot {POD} analysis of {PIV}
+  velocity and vorticity data},
+\newblock \bibinfo{journal}{Experiments in Fluids} \bibinfo{volume}{38}
+  (\bibinfo{year}{2005}) \bibinfo{pages}{146--160}.
+%Type = Article
+\bibitem[{Feng et~al.(2010)Feng, Wang, and Pan}]{feng2010}
+\bibinfo{author}{L.~Feng}, \bibinfo{author}{J.~Wang}, \bibinfo{author}{C.~Pan},
+\newblock \bibinfo{title}{Proper orthogonal decomposition analysis of vortex
+  dynamics of a circular cylinder under synthetic jet control},
+\newblock \bibinfo{journal}{Physics of Fluids} \bibinfo{volume}{23}
+  (\bibinfo{year}{2010}) \bibinfo{pages}{014106--1--014106--14}.
+%Type = Article
+\bibitem[{Kostas et~al.(2002)Kostas, Soria, and Chong}]{kostas2002}
+\bibinfo{author}{J.~Kostas}, \bibinfo{author}{J.~Soria},
+  \bibinfo{author}{M.~Chong},
+\newblock \bibinfo{title}{Particle image velocimetry measurements of a
+  backward-facing step flow},
+\newblock \bibinfo{journal}{Experiments in Fluids} \bibinfo{volume}{33}
+  (\bibinfo{year}{2002}) \bibinfo{pages}{838--853}.
+%Type = Article
+\bibitem[{Fraga et~al.(2021)Fraga, Yin, and Ong}]{fraga2021}
+\bibinfo{author}{V.~S. Fraga}, \bibinfo{author}{G.~Yin}, \bibinfo{author}{M.~C.
+  Ong},
+\newblock \bibinfo{title}{Three-dimensional numerical simulation and proper
+  orthogonal decomposition analysis of flow over different bottom-mounted
+  ribs},
+\newblock \bibinfo{journal}{Ships and Offshore Structures}
+  (\bibinfo{year}{2021}) \bibinfo{pages}{1977939--1--1977939--37}.
+%Type = Article
+\bibitem[{Venturi(2006)}]{venturi2006}
+\bibinfo{author}{D.~Venturi},
+\newblock \bibinfo{title}{On proper orthogonal decomposition of randomly
+  perturbed fields with applications to flow past a cylinder and natural
+  convection over a horizontal plate},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{559}
+  (\bibinfo{year}{2006}) \bibinfo{pages}{215--254}.
+%Type = Article
+\bibitem[{Ma et~al.(2000)Ma, Karamabnos, and Karniadakis}]{ma2000}
+\bibinfo{author}{X.~Ma}, \bibinfo{author}{G.-S. Karamabnos},
+  \bibinfo{author}{G.~E. Karniadakis},
+\newblock \bibinfo{title}{Dynamics and low-dimensionality of a turbulent near
+  wake},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{410}
+  (\bibinfo{year}{2000}) \bibinfo{pages}{29--65}.
+%Type = Article
+\bibitem[{Ma et~al.(2003)Ma, Karniadikis, Park, and Gharib}]{ma2003}
+\bibinfo{author}{X.~Ma}, \bibinfo{author}{G.~E. Karniadikis},
+  \bibinfo{author}{H.~Park}, \bibinfo{author}{M.~Gharib},
+\newblock \bibinfo{title}{{DPIV}-driven flow simulation: a new computational
+  paradigm},
+\newblock \bibinfo{journal}{Proceedings of the Royal Society A}
+  \bibinfo{volume}{459} (\bibinfo{year}{2003}) \bibinfo{pages}{547--565}.
+%Type = Article
+\bibitem[{Riches et~al.(2018)Riches, Martinuzzi, and Morton}]{riches2018}
+\bibinfo{author}{G.~Riches}, \bibinfo{author}{R.~Martinuzzi},
+  \bibinfo{author}{C.~Morton},
+\newblock \bibinfo{title}{Proper orthogonal decomposition analysis of a
+  circular cylinder undergoing vortex-induced vibrations},
+\newblock \bibinfo{journal}{Physics of Fluids} \bibinfo{volume}{30}
+  (\bibinfo{year}{2018}) \bibinfo{pages}{105103--1--105103--22}.
+%Type = Inproceedings
+\bibitem[{Uruba et~al.(2020)Uruba, Prochazka, and Skala}]{uruba2020}
+\bibinfo{author}{V.~Uruba}, \bibinfo{author}{P.~Prochazka},
+  \bibinfo{author}{V.~Skala},
+\newblock \bibinfo{title}{On the {3D} dynamics of the wake behind a circular
+  cylinder},
+\newblock in: \bibinfo{editor}{T.~Bodnar}, \bibinfo{editor}{D.~Simurda} (Eds.),
+  \bibinfo{booktitle}{Proceedings of the conference Topical Problems of Fluid
+  Mechanics}, \bibinfo{publisher}{IT CAS}, \bibinfo{year}{2020}, pp.
+  \bibinfo{pages}{240--248}.
+%Type = Article
+\bibitem[{Uruba and Prochazka(2020)}]{uruba2020a}
+\bibinfo{author}{V.~Uruba}, \bibinfo{author}{P.~Prochazka},
+\newblock \bibinfo{title}{{POD} spectrum of the wake behind a circular
+  cylinder},
+\newblock \bibinfo{journal}{MATEC Web Conf.} \bibinfo{volume}{328}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{05006}.
+%Type = Inbook
+\bibitem[{Strelets(2001)}]{strelets2001}
+\bibinfo{author}{M.~Strelets}, \bibinfo{title}{Detached eddy simulation of
+  massively separated flows}, \bibinfo{publisher}{AIAA}, \bibinfo{year}{2001},
+  pp. \bibinfo{pages}{2001--0879}.
+%Type = Article
+\bibitem[{Jie and Liu(2016)}]{jie2016}
+\bibinfo{author}{H.~Jie}, \bibinfo{author}{Y.~Z. Liu},
+\newblock \bibinfo{title}{Large eddy simulation of turbulent flow over a
+  cactus-analogue grooved cylinder},
+\newblock \bibinfo{journal}{Journal of Visualization} \bibinfo{volume}{19}
+  (\bibinfo{year}{2016}) \bibinfo{pages}{61}.
+%Type = Article
+\bibitem[{González-Neria et~al.(2019)González-Neria, Alonzo-Garcia,
+  Martínez-Delgadillo, Mendoza-Escamilla, Yáñez-Varela, Verdin, and
+  Rivadeneyra-Romero}]{gonzalez2019}
+\bibinfo{author}{I.~González-Neria}, \bibinfo{author}{A.~Alonzo-Garcia},
+  \bibinfo{author}{S.~A. Martínez-Delgadillo}, \bibinfo{author}{V.~X.
+  Mendoza-Escamilla}, \bibinfo{author}{J.~A. Yáñez-Varela},
+  \bibinfo{author}{P.~G. Verdin}, \bibinfo{author}{G.~Rivadeneyra-Romero},
+\newblock \bibinfo{title}{Piv and dynamic les of the turbulent stream and
+  mixing induced by a v-grooved blade axial agitator},
+\newblock \bibinfo{journal}{Chemical Engineering Journal} \bibinfo{volume}{374}
+  (\bibinfo{year}{2019}) \bibinfo{pages}{1138--1152}.
+%Type = Misc
+\bibitem[{{Dantec Dynamics}(2021)}]{dynamicsStudio}
+\bibinfo{author}{{Dantec Dynamics}}, \bibinfo{title}{Dynamicstudio},
+  \bibinfo{year}{2021}. \URLprefix
+  \url{https://www.dantecdynamics.com/components/dynamicstudio/}.
+%Type = Article
+\bibitem[{Prochazka and Uruba(2019)}]{prochazka2019}
+\bibinfo{author}{P.~Prochazka}, \bibinfo{author}{V.~Uruba},
+\newblock \bibinfo{title}{Streamwise and spanwise vortical structure merging
+  inside the wake of an inclined flat plate},
+\newblock \bibinfo{journal}{Mechanics and Industry} \bibinfo{volume}{20}
+  (\bibinfo{year}{2019}) \bibinfo{pages}{705--1--705--13}.
+%Type = Book
+\bibitem[{OpenCFD(2007)}]{OpenFOAM2007}
+\bibinfo{author}{OpenCFD}, \bibinfo{title}{OpenFOAM: The Open Source CFD
+  Toolbox. User Guide Version 1.4, OpenCFD Limited},
+  \bibinfo{publisher}{Reading UK}, \bibinfo{year}{2007}.
+%Type = Article
+\bibitem[{Zhiyin(2015)}]{yang2015}
+\bibinfo{author}{Y.~Zhiyin},
+\newblock \bibinfo{title}{Large-eddy simulation: Past, present and the future},
+\newblock \bibinfo{journal}{Chinese Journal of Aeronautics}
+  \bibinfo{volume}{28} (\bibinfo{year}{2015}) \bibinfo{pages}{11--24}.
+%Type = Techreport
+\bibitem[{Menter(1992)}]{menter1992}
+\bibinfo{author}{F.~R. Menter}, \bibinfo{title}{Improved two equation
+  k-$\omega$ turbulence models for aerodynamic flows}, \bibinfo{type}{Technical
+  Report} \bibinfo{number}{N93-22809}, NASA, \bibinfo{year}{1992}.
+%Type = Inproceedings
+\bibitem[{Hellsten(1997)}]{hellsten1997}
+\bibinfo{author}{A.~Hellsten},
+\newblock \bibinfo{title}{Some improvements in {M}enter's k-$\omega$ {SST}
+  turbulence model},
+\newblock in: \bibinfo{booktitle}{Proceedings of the Fluid Dynamics
+  Conference}, volume~\bibinfo{volume}{71}, \bibinfo{publisher}{AIAA},
+  \bibinfo{year}{1997}, p.~\bibinfo{pages}{11}.
+  \DOIprefix\doi{10.2514/6.1998-2554}.
+%Type = Inbook
+\bibitem[{Menter et~al.(2003)Menter, Kuntz, and Langtry}]{menter2003}
+\bibinfo{author}{F.~R. Menter}, \bibinfo{author}{M.~Kuntz},
+  \bibinfo{author}{R.~Langtry}, \bibinfo{title}{Ten years of experience with
+  the {SST} turbulence model}, \bibinfo{edition}{1} ed.,
+  \bibinfo{publisher}{Begell House}, \bibinfo{year}{2003}, pp.
+  \bibinfo{pages}{625--632}.
+%Type = Book
+\bibitem[{Moukalled et~al.(2016)Moukalled, Darwish, and
+  Mangani}]{moukalled2016}
+\bibinfo{author}{F.~Moukalled}, \bibinfo{author}{M.~Darwish},
+  \bibinfo{author}{L.~Mangani}, \bibinfo{title}{The finite volume method in
+  computational fluid dynamics: an advanced introduction with {O}pen{FOAM} and
+  {M}atlab}, \bibinfo{edition}{1} ed., \bibinfo{publisher}{Springer-Verlag},
+  \bibinfo{address}{Berlin, Germany}, \bibinfo{year}{2016}.
+%Type = Article
+\bibitem[{Zhu and Rodi(1991)}]{zhu1991}
+\bibinfo{author}{J.~Zhu}, \bibinfo{author}{W.~Rodi},
+\newblock \bibinfo{title}{A low dispersion and bounded convection scheme},
+\newblock \bibinfo{journal}{Computer Methods in Applied Mechanics and
+  Engineering} \bibinfo{volume}{92} (\bibinfo{year}{1991})
+  \bibinfo{pages}{87--96}.
+%Type = Article
+\bibitem[{Crank and Nicolson(1947)}]{crankNicolson1947}
+\bibinfo{author}{J.~Crank}, \bibinfo{author}{P.~Nicolson},
+\newblock \bibinfo{title}{A practical method for numerical evaluation of
+  solutions of partial differential equations of the heat-conduction type},
+\newblock \bibinfo{journal}{Mathematical Proceedings of the Cambridge
+  Philosophical Society} \bibinfo{volume}{43} (\bibinfo{year}{1947})
+  \bibinfo{pages}{50--67}.
+%Type = Inproceedings
+\bibitem[{Gatski and Glauser(1991)}]{gatski1991}
+\bibinfo{author}{T.~B. Gatski}, \bibinfo{author}{M.~N. Glauser},
+\newblock \bibinfo{title}{Proper orthogonal decomposition based turbulence
+  modeling},
+\newblock in: \bibinfo{booktitle}{Proceedings of the conference ICASE/LaRC
+  Workshop on Transition and Turbulence}, \bibinfo{publisher}{NASA},
+  \bibinfo{year}{1991}, p.~\bibinfo{pages}{22}.
+%Type = Article
+\bibitem[{Shinde(2020)}]{shinde2020}
+\bibinfo{author}{V.~Shinde},
+\newblock \bibinfo{title}{Proper orthogonal decomposition assisted
+  subfilter-scale model of turbulence for large eddy simulation},
+\newblock \bibinfo{journal}{Physical review fluids} \bibinfo{volume}{5}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{014605}.
+%Type = Book
+\bibitem[{Volkwein(2013)}]{volkwein2013}
+\bibinfo{author}{S.~Volkwein}, \bibinfo{title}{Proper orthogonal decomposition:
+  theory and reduced-order modelling}, \bibinfo{edition}{1} ed.,
+  \bibinfo{publisher}{Universtity of Konstanz}, \bibinfo{address}{Konstanz,
+  Germany}, \bibinfo{year}{2013}.
+%Type = Inproceedings
+\bibitem[{Kabir et~al.(2017)Kabir, Haidar, Tomov, Bouteiller, and
+  Dongarra}]{kabir2017}
+\bibinfo{author}{K.~Kabir}, \bibinfo{author}{A.~Haidar},
+  \bibinfo{author}{S.~Tomov}, \bibinfo{author}{A.~Bouteiller},
+  \bibinfo{author}{J.~Dongarra},
+\newblock \bibinfo{title}{A framework for out of memory svd algorithms},
+\newblock in: \bibinfo{editor}{J.~M. Kunkel}, \bibinfo{editor}{R.~Yokota},
+  \bibinfo{editor}{P.~Balaji}, \bibinfo{editor}{D.~Keyes} (Eds.),
+  \bibinfo{booktitle}{High Performance Computing}, \bibinfo{publisher}{Springer
+  International Publishing}, \bibinfo{year}{2017}, p. \bibinfo{pages}{158}.
+%Type = Article
+\bibitem[{Rokhlin et~al.(2010)Rokhlin, Szlam, and Tygert}]{rokhlin2009}
+\bibinfo{author}{V.~Rokhlin}, \bibinfo{author}{A.~Szlam},
+  \bibinfo{author}{M.~Tygert},
+\newblock \bibinfo{title}{A randomized algorithm for principal component
+  analysis},
+\newblock \bibinfo{journal}{SIAM Journal on Matrix Analysis and Applications}
+  \bibinfo{volume}{31} (\bibinfo{year}{2010}) \bibinfo{pages}{1100--1124}.
+%Type = Article
+\bibitem[{Halko et~al.(2011)Halko, Martinsson, and Tropp}]{halko2011}
+\bibinfo{author}{N.~Halko}, \bibinfo{author}{P.~G. Martinsson},
+  \bibinfo{author}{J.~A. Tropp},
+\newblock \bibinfo{title}{Finding structure with randomness: Probabilistic
+  algorithms for constructing approximate matrix decompositions},
+\newblock \bibinfo{journal}{SIAM Review} \bibinfo{volume}{53}
+  (\bibinfo{year}{2011}) \bibinfo{pages}{217--288}.
+%Type = Article
+\bibitem[{Duersch and Gu(2017)}]{gu2015}
+\bibinfo{author}{J.~A. Duersch}, \bibinfo{author}{M.~Gu},
+\newblock \bibinfo{title}{Randomized qr with column pivoting},
+\newblock \bibinfo{journal}{SIAM Journal on Scientific Computing}
+  \bibinfo{volume}{39} (\bibinfo{year}{2017}).
+%Type = Article
+\bibitem[{Wen et~al.(2016)Wen, Luo, Luo, Kassem, Jin, and Fan}]{wen2016}
+\bibinfo{author}{X.~Wen}, \bibinfo{author}{K.~Luo}, \bibinfo{author}{Y.~Luo},
+  \bibinfo{author}{H.~I. Kassem}, \bibinfo{author}{H.~Jin},
+  \bibinfo{author}{J.~Fan},
+\newblock \bibinfo{title}{Large eddy simulation of a semi-industrial scale coal
+  furnace using non-adiabatic three-stream flamelet/progress variable model},
+\newblock \bibinfo{journal}{Applied Energy} \bibinfo{volume}{183}
+  (\bibinfo{year}{2016}) \bibinfo{pages}{1086--1097}.
+%Type = Article
+\bibitem[{Yousif and Lim(2021)}]{mustafa2021}
+\bibinfo{author}{M.~Z. Yousif}, \bibinfo{author}{H.~Lim},
+\newblock \bibinfo{title}{Improved delayed detached-eddy simulation and proper
+  orthogonal decomposition analysis of turbulent wake behind a wall-mounted
+  square cylinder},
+\newblock \bibinfo{journal}{AIP Advances} \bibinfo{volume}{11}
+  (\bibinfo{year}{2021}) \bibinfo{pages}{045011}.
+%Type = Book
+\bibitem[{Lienhard(1966)}]{lienhard1966}
+\bibinfo{author}{J.~H. Lienhard}, \bibinfo{title}{Synopsis of lift, drag, and
+  vortex frequency data for rigid circular cylinders},
+  \bibinfo{publisher}{Pullman, Wash: Technical Extension Service},
+  \bibinfo{address}{Washington State University}, \bibinfo{year}{1966}.
+%Type = Article
+\bibitem[{Kraichnan(1967)}]{kraichnan1967}
+\bibinfo{author}{R.~H. Kraichnan},
+\newblock \bibinfo{title}{Inertial ranges in two‐dimensional turbulence},
+\newblock \bibinfo{journal}{The Physics of Fluids} \bibinfo{volume}{10}
+  (\bibinfo{year}{1967}) \bibinfo{pages}{1417--1423}.
+%Type = Article
+\bibitem[{Rutgers(1998)}]{rutgers1998}
+\bibinfo{author}{M.~A. Rutgers},
+\newblock \bibinfo{title}{Forced 2d turbulence: Experimental evidence of
+  simultaneous inverse energy and forward enstrophy cascades},
+\newblock \bibinfo{journal}{Physical Review Letters} \bibinfo{volume}{81}
+  (\bibinfo{year}{1998}) \bibinfo{pages}{2244--2247}.
+%Type = Article
+\bibitem[{Rose and Sulem(1978)}]{rose1978}
+\bibinfo{author}{H.~Rose}, \bibinfo{author}{P.~Sulem},
+\newblock \bibinfo{title}{Fully developed turbulence and statistical
+  mechanics},
+\newblock \bibinfo{journal}{Le Journal de Physique} \bibinfo{volume}{39}
+  (\bibinfo{year}{1978}) \bibinfo{pages}{441--484}.
+%Type = Book
+\bibitem[{Chorin(1994)}]{chorin1994}
+\bibinfo{author}{A.~Chorin}, \bibinfo{title}{Vorticity and Turbulence},
+  \bibinfo{edition}{1} ed., \bibinfo{publisher}{Springer Science+Business
+  Media}, \bibinfo{address}{New York, USA}, \bibinfo{year}{1994}.
+%Type = Article
+\bibitem[{Garcia et~al.(2019)Garcia, Weymouth, Nguyen, and Tutty}]{garcia2019}
+\bibinfo{author}{B.~Garcia}, \bibinfo{author}{G.~Weymouth},
+  \bibinfo{author}{V.-T. Nguyen}, \bibinfo{author}{O.~Tutty},
+\newblock \bibinfo{title}{Span effect on turbulent nature of flow past a
+  circular cylinder},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{878}
+  (\bibinfo{year}{2019}) \bibinfo{pages}{306--323}.
+%Type = Article
+\bibitem[{Harris et~al.(2020)Harris, Millman, van~der Walt, Gommers, Virtanen,
+  Cournapeau, Wieser, Taylor, Berg, Smith, Kern, Picus, Hoyer, van Kerkwijk,
+  Brett, Haldane, del R{\'{i}}o, Wiebe, Peterson, G{\'{e}}rard-Marchant,
+  Sheppard, Reddy, Weckesser, Abbasi, Gohlke, and Oliphant}]{numpy}
+\bibinfo{author}{C.~R. Harris}, \bibinfo{author}{K.~J. Millman},
+  \bibinfo{author}{S.~J. van~der Walt}, \bibinfo{author}{R.~Gommers},
+  \bibinfo{author}{P.~Virtanen}, \bibinfo{author}{D.~Cournapeau},
+  \bibinfo{author}{E.~Wieser}, \bibinfo{author}{J.~Taylor},
+  \bibinfo{author}{S.~Berg}, \bibinfo{author}{N.~J. Smith},
+  \bibinfo{author}{R.~Kern}, \bibinfo{author}{M.~Picus},
+  \bibinfo{author}{S.~Hoyer}, \bibinfo{author}{M.~H. van Kerkwijk},
+  \bibinfo{author}{M.~Brett}, \bibinfo{author}{A.~Haldane},
+  \bibinfo{author}{J.~F. del R{\'{i}}o}, \bibinfo{author}{M.~Wiebe},
+  \bibinfo{author}{P.~Peterson}, \bibinfo{author}{P.~G{\'{e}}rard-Marchant},
+  \bibinfo{author}{K.~Sheppard}, \bibinfo{author}{T.~Reddy},
+  \bibinfo{author}{W.~Weckesser}, \bibinfo{author}{H.~Abbasi},
+  \bibinfo{author}{C.~Gohlke}, \bibinfo{author}{T.~E. Oliphant},
+\newblock \bibinfo{title}{Array programming with {NumPy}},
+\newblock \bibinfo{journal}{Nature} \bibinfo{volume}{585}
+  (\bibinfo{year}{2020}) \bibinfo{pages}{357--362}.
+%Type = Phdthesis
+\bibitem[{Isoz(2018)}]{isoz2018}
+\bibinfo{author}{M.~Isoz}, \bibinfo{title}{Dynamics of rivulets and other
+  multiphase flows}, \bibinfo{type}{{Ph.D.} thesis}, University of Chemistry
+  and Technology, \bibinfo{year}{2018}.
+%Type = Article
+\bibitem[{Reiss et~al.(2018)Reiss, Schulze, Sesterhenn, and
+  Merhmann}]{reiss2018}
+\bibinfo{author}{J.~Reiss}, \bibinfo{author}{P.~Schulze},
+  \bibinfo{author}{J.~Sesterhenn}, \bibinfo{author}{V.~Merhmann},
+\newblock \bibinfo{title}{The shifted proper orthogonal decomposition: a mode
+  decomposition for multiple transport phenomena},
+\newblock \bibinfo{journal}{SIAM Journal of Scientific Computing}
+  \bibinfo{volume}{40} (\bibinfo{year}{2018}) \bibinfo{pages}{A1322--A1344}.
+%Type = Article
+\bibitem[{Reiss(2021)}]{reiss2021}
+\bibinfo{author}{J.~Reiss},
+\newblock \bibinfo{title}{Optimization-based modal decomposition for systems
+  with multiple transports},
+\newblock \bibinfo{journal}{SIAM Journal of Scientific Computing}
+  \bibinfo{volume}{43} (\bibinfo{year}{2021}) \bibinfo{pages}{A2079--A2101}.
+%Type = Article
+\bibitem[{Prasad and Williamson(1997)}]{prasad1997}
+\bibinfo{author}{A.~Prasad}, \bibinfo{author}{C.~Williamson},
+\newblock \bibinfo{title}{Three-dimensional effects in turbulent bluff-body
+  wakes},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{343}
+  (\bibinfo{year}{1997}) \bibinfo{pages}{235--265}.
+%Type = Article
+\bibitem[{Williamson(1989)}]{williamson1989}
+\bibinfo{author}{C.~Williamson},
+\newblock \bibinfo{title}{Oblique and parallel modes of vortex shedding in the
+  wake of a circular cylinder at low reynolds numbers},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{206}
+  (\bibinfo{year}{1989}) \bibinfo{pages}{579--627}.
+
+\end{thebibliography}
