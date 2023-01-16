@@ -3,11 +3,12 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: model1-num-names.bst
 Database file #1: references.bib
+Warning--I didn't find a database entry for ""
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Warning--empty pages in jollife2014
 You've used 58 entries,
             2910 wiz_defined-function locations,
-            1004 strings with 15184 characters,
+            1004 strings with 15182 characters,
 and the built_in function-call counts, 35480 in all, are:
 = -- 2557
 > -- 1392
@@ -46,4 +47,4 @@ warning$ -- 1
 while$ -- 229
 width$ -- 0
 write$ -- 763
-(There was 1 warning)
+(There were 2 warnings)

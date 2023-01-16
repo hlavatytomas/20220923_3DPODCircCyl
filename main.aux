@@ -28,6 +28,7 @@
 \citation{williamson1996}
 \citation{chu21}
 \citation{choi08}
+\citation{}
 \citation{isoz2019}
 \citation{taira2020}
 \citation{Pearson1901}
@@ -59,30 +60,30 @@
 \newlabel{sec:model}{{3}{6}{Mathematical model}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Flow governing equations, turbulence modeling and boundary conditions}{6}{subsection.3.1}\protected@file@percent }
 \newlabel{sub:flowEqs}{{3.1}{6}{Flow governing equations, turbulence modeling and boundary conditions}{subsection.3.1}{}}
-\newlabel{eq:nsEqs}{{3}{6}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.3}{}}
 \citation{yang2015}
 \citation{strelets2001}
 \citation{strelets2001}
 \citation{menter1992}
 \citation{hellsten1997}
 \citation{menter2003}
+\newlabel{eq:nsEqs}{{3}{7}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.3}{}}
+\newlabel{eq:stress}{{4}{7}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.4}{}}
 \citation{hellsten1997}
 \citation{menter2003}
-\newlabel{eq:stress}{{4}{7}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.4}{}}
-\newlabel{eq:kOmegaSSTDES}{{5}{7}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.5}{}}
+\newlabel{eq:kOmegaSSTDES}{{5}{8}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.5}{}}
 \newlabel{eq:FDES}{{6}{8}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.6}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Applied boundary conditions. The \textit  {virtual walls} are shown in red in Figure\nobreakspace  {}\ref  {fig:geom}.\relax }}{8}{table.caption.2}\protected@file@percent }
 \newlabel{tab:BC}{{1}{8}{Applied boundary conditions. The \textit {virtual walls} are shown in red in Figure~\ref {fig:geom}.\relax }{table.caption.2}{}}
-\newlabel{eq:slipBC}{{7}{8}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.7}{}}
+\newlabel{eq:slipBC}{{7}{9}{Flow governing equations, turbulence modeling and boundary conditions}{equation.3.7}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Computational mesh}{9}{subsection.3.2}\protected@file@percent }
 \newlabel{sub:meshAndBC}{{3.2}{9}{Computational mesh}{subsection.3.2}{}}
 \newlabel{eq:RoI}{{8}{9}{Computational mesh}{equation.3.8}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cut through the computational mesh ($\Omega ^{h}$) in $x-y$ plane, which contains the streamwise plane of measurement (PoM1). Regions of activity for different turbulence models are highlighted. The region of interest (RoI) is outlined in red.\relax }}{9}{figure.caption.3}\protected@file@percent }
-\newlabel{fig:compMesh}{{2}{9}{Cut through the computational mesh ($\Omega ^{h}$) in $x-y$ plane, which contains the streamwise plane of measurement (PoM1). Regions of activity for different turbulence models are highlighted. The region of interest (RoI) is outlined in red.\relax }{figure.caption.3}{}}
 \citation{OpenFOAM2007}
 \citation{moukalled2016}
 \citation{zhu1991}
 \citation{crankNicolson1947}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Cut through the computational mesh ($\Omega ^{h}$) in $x-y$ plane, which contains the streamwise plane of measurement (PoM1). Regions of activity for different turbulence models are highlighted. The region of interest (RoI) is outlined in red.\relax }}{10}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:compMesh}{{2}{10}{Cut through the computational mesh ($\Omega ^{h}$) in $x-y$ plane, which contains the streamwise plane of measurement (PoM1). Regions of activity for different turbulence models are highlighted. The region of interest (RoI) is outlined in red.\relax }{figure.caption.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Numerical methods and mesh size independence}{10}{subsection.3.3}\protected@file@percent }
 \newlabel{sub:numerics}{{3.3}{10}{Numerical methods and mesh size independence}{subsection.3.3}{}}
 \citation{OpenFOAM2007}
@@ -94,115 +95,115 @@
 \newlabel{sec:POD}{{4}{12}{Proper orthogonal decomposition}{section.4}{}}
 \newlabel{eq:snapshots}{{10}{12}{Proper orthogonal decomposition}{equation.4.10}{}}
 \newlabel{eq:matrixOfSnapshots}{{11}{12}{Proper orthogonal decomposition}{equation.4.11}{}}
-\newlabel{eq:svdY}{{12}{12}{Proper orthogonal decomposition}{equation.4.12}{}}
-\newlabel{eq:chronosTopos}{{13}{12}{Proper orthogonal decomposition}{equation.4.13}{}}
 \citation{isoz2019,volkwein2013}
 \citation{kabir2017}
-\citation{rokhlin2009,halko2011,gu2015}
+\newlabel{eq:svdY}{{12}{13}{Proper orthogonal decomposition}{equation.4.12}{}}
+\newlabel{eq:chronosTopos}{{13}{13}{Proper orthogonal decomposition}{equation.4.13}{}}
 \@writefile{toc}{\contentsline {paragraph}{Computational remark:}{13}{section*.5}\protected@file@percent }
-\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Out-of-memory randomized POD modes computation\relax }}{13}{algorithm.1}\protected@file@percent }
-\newlabel{alg:randPOD}{{1}{13}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
-\newlabel{alg:tildeYComp}{{2}{13}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
-\newlabel{alg:tildeYUpdate}{{4}{13}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
-\newlabel{alg:BComp}{{7}{13}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces POD and randomized POD (rPOD) results for simulated velocity field sampled on PoM1. (a) $\bm  {\psi }_{1,x}$ computed via POD, (b) relative difference between the POD and rPOD toposes, (c) $_{\mathrm  {r}}\bm  {\psi }_{1,x}$ computed via rPOD, (d) relative difference between the first 30 POD and rPOD singular values.\relax }}{14}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:podRandPODComp}{{4}{14}{POD and randomized POD (rPOD) results for simulated velocity field sampled on PoM1. (a) $\bm {\psi }_{1,x}$ computed via POD, (b) relative difference between the POD and rPOD toposes, (c) $_{\mathrm {r}}\bm {\psi }_{1,x}$ computed via rPOD, (d) relative difference between the first 30 POD and rPOD singular values.\relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Results and discussion}{15}{section.5}\protected@file@percent }
-\newlabel{sec:resultsAndDisc}{{5}{15}{Results and discussion}{section.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Mean quantities}{15}{subsection.5.1}\protected@file@percent }
-\newlabel{sub:meanData}{{5.1}{15}{Mean quantities}{subsection.5.1}{}}
-\newlabel{eq:sigmaZeta}{{14}{16}{Mean quantities}{equation.5.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Measured and computed mean a) streamwise velocity component $u_r$, and b) turbulence kinetic energy $k$ contours on PoM1 with reference points $p_{1}$ and $p_{2}$ for turbulence spectra analysis, c) streamwise velocity component $u_r$ and turbulence kinetic energy $k$ profiles on line $\sigma $.\relax }}{16}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:meansPom1}{{5}{16}{Measured and computed mean a) streamwise velocity component $u_r$, and b) turbulence kinetic energy $k$ contours on PoM1 with reference points $p_{1}$ and $p_{2}$ for turbulence spectra analysis, c) streamwise velocity component $u_r$ and turbulence kinetic energy $k$ profiles on line $\sigma $.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {paragraph}{PoM1}{16}{section*.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{PoM2}{17}{section*.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Measured and computed time-averaged a) stream-wise velocity component, and b) turbulence kinetic energy contours on PoM2, c) stream-wise velocity component and turbulence kinetic energy profile on line $\zeta $.\relax }}{18}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:meansPom2}{{6}{18}{Measured and computed time-averaged a) stream-wise velocity component, and b) turbulence kinetic energy contours on PoM2, c) stream-wise velocity component and turbulence kinetic energy profile on line $\zeta $.\relax }{figure.caption.9}{}}
+\citation{rokhlin2009,halko2011,gu2015}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Out-of-memory randomized POD modes computation\relax }}{14}{algorithm.1}\protected@file@percent }
+\newlabel{alg:randPOD}{{1}{14}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
+\newlabel{alg:tildeYComp}{{2}{14}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
+\newlabel{alg:tildeYUpdate}{{4}{14}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
+\newlabel{alg:BComp}{{7}{14}{Out-of-memory randomized POD modes computation\relax }{algorithm.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces POD and randomized POD (rPOD) results for simulated velocity field sampled on PoM1. (a) $\bm  {\psi }_{1,x}$ computed via POD, (b) relative difference between the POD and rPOD toposes, (c) $_{\mathrm  {r}}\bm  {\psi }_{1,x}$ computed via rPOD, (d) relative difference between the first 30 POD and rPOD singular values.\relax }}{15}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:podRandPODComp}{{4}{15}{POD and randomized POD (rPOD) results for simulated velocity field sampled on PoM1. (a) $\bm {\psi }_{1,x}$ computed via POD, (b) relative difference between the POD and rPOD toposes, (c) $_{\mathrm {r}}\bm {\psi }_{1,x}$ computed via rPOD, (d) relative difference between the first 30 POD and rPOD singular values.\relax }{figure.caption.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Results and discussion}{16}{section.5}\protected@file@percent }
+\newlabel{sec:resultsAndDisc}{{5}{16}{Results and discussion}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Mean quantities}{16}{subsection.5.1}\protected@file@percent }
+\newlabel{sub:meanData}{{5.1}{16}{Mean quantities}{subsection.5.1}{}}
+\newlabel{eq:sigmaZeta}{{14}{17}{Mean quantities}{equation.5.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Measured and computed mean a) streamwise velocity component $u_r$, and b) turbulence kinetic energy $k$ contours on PoM1 with reference points $p_{1}$ and $p_{2}$ for turbulence spectra analysis, c) streamwise velocity component $u_r$ and turbulence kinetic energy $k$ profiles on line $\sigma $.\relax }}{17}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:meansPom1}{{5}{17}{Measured and computed mean a) streamwise velocity component $u_r$, and b) turbulence kinetic energy $k$ contours on PoM1 with reference points $p_{1}$ and $p_{2}$ for turbulence spectra analysis, c) streamwise velocity component $u_r$ and turbulence kinetic energy $k$ profiles on line $\sigma $.\relax }{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {paragraph}{PoM1}{17}{section*.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{PoM2}{18}{section*.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Measured and computed time-averaged a) stream-wise velocity component, and b) turbulence kinetic energy contours on PoM2, c) stream-wise velocity component and turbulence kinetic energy profile on line $\zeta $.\relax }}{19}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:meansPom2}{{6}{19}{Measured and computed time-averaged a) stream-wise velocity component, and b) turbulence kinetic energy contours on PoM2, c) stream-wise velocity component and turbulence kinetic energy profile on line $\zeta $.\relax }{figure.caption.9}{}}
 \citation{wen2016,gonzalez2019}
 \citation{mustafa2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Comparison of measured and computed turbulence spectra in probe points $p_{1}$ and $p_{2}$.\relax }}{20}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:turbSpectraPts}{{7}{20}{Comparison of measured and computed turbulence spectra in probe points $p_{1}$ and $p_{2}$.\relax }{figure.caption.11}{}}
 \citation{uruba2020a}
 \citation{lienhard1966}
 \citation{kraichnan1967,rutgers1998}
 \citation{kraichnan1967,rose1978}
 \citation{rose1978}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Turbulence spectra}{19}{subsection.5.2}\protected@file@percent }
-\newlabel{sub:turbSpectra}{{5.2}{19}{Turbulence spectra}{subsection.5.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Comparison of measured and computed turbulence spectra in probe points $p_{1}$ and $p_{2}$.\relax }}{20}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:turbSpectraPts}{{7}{20}{Comparison of measured and computed turbulence spectra in probe points $p_{1}$ and $p_{2}$.\relax }{figure.caption.11}{}}
 \citation{kraichnan1967,rose1978,chorin1994}
 \citation{rose1978}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Scaled energy ($\tilde  {E} := E_{D}/\mathrm  {mean}\,(E_{D})$) and enstrophy ($\tilde  {Z} := Z_{D}/\mathrm  {mean}\,(Z_{D})$) conservation in $D = \text  {PoM1},\text  {RoI}$, where $D$ in the subscript denotes integration over the domain of interest. A purely 2D case of a laminar von Karman vortex street at $\mathrm  {Re}= 115$ (lam.) is shown for reference.\relax }}{21}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:engEnsConserv}{{8}{21}{Scaled energy ($\tilde {E} := E_{D}/\mathrm {mean}\,(E_{D})$) and enstrophy ($\tilde {Z} := Z_{D}/\mathrm {mean}\,(Z_{D})$) conservation in $D = \text {PoM1},\text {RoI}$, where $D$ in the subscript denotes integration over the domain of interest. A purely 2D case of a laminar von Karman vortex street at $\Rey = 115$ (lam.) is shown for reference.\relax }{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Turbulence spectra}{21}{subsection.5.2}\protected@file@percent }
+\newlabel{sub:turbSpectra}{{5.2}{21}{Turbulence spectra}{subsection.5.2}{}}
 \citation{garcia2019}
 \citation{rose1978}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}POD analysis on PoM1 and PoM2}{22}{subsection.5.3}\protected@file@percent }
-\newlabel{sub:2DPOD}{{5.3}{22}{POD analysis on PoM1 and PoM2}{subsection.5.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Scaled energy ($\tilde  {E} := E_{D}/\mathrm  {mean}\,(E_{D})$) and enstrophy ($\tilde  {Z} := Z_{D}/\mathrm  {mean}\,(Z_{D})$) conservation in $D = \text  {PoM1},\text  {RoI}$, where $D$ in the subscript denotes integration over the domain of interest. A purely 2D case of a laminar von Karman vortex street at $\mathrm  {Re}= 115$ (lam.) is shown for reference.\relax }}{22}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:engEnsConserv}{{8}{22}{Scaled energy ($\tilde {E} := E_{D}/\mathrm {mean}\,(E_{D})$) and enstrophy ($\tilde {Z} := Z_{D}/\mathrm {mean}\,(Z_{D})$) conservation in $D = \text {PoM1},\text {RoI}$, where $D$ in the subscript denotes integration over the domain of interest. A purely 2D case of a laminar von Karman vortex street at $\Rey = 115$ (lam.) is shown for reference.\relax }{figure.caption.12}{}}
 \citation{dynamicsStudio}
 \citation{numpy}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of the measured (PIV) and computed (CFD) squared singular values of the POD decomposition of the data from PoM1 (left) and PoM2 (right).\relax }}{23}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:singVals}{{9}{23}{Comparison of the measured (PIV) and computed (CFD) squared singular values of the POD decomposition of the data from PoM1 (left) and PoM2 (right).\relax }{figure.caption.13}{}}
-\@writefile{toc}{\contentsline {paragraph}{Singular values}{23}{section*.14}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}POD analysis on PoM1 and PoM2}{23}{subsection.5.3}\protected@file@percent }
+\newlabel{sub:2DPOD}{{5.3}{23}{POD analysis on PoM1 and PoM2}{subsection.5.3}{}}
 \citation{taira2020,isoz2018}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comparison of the measured and computed $\eta -\eta $ diagrams for pairs of the modes 1-2 and 15-16 (upper row), spatial shift of measured toposes 1-2 and 15-16 (lower row).\relax }}{24}{figure.caption.15}\protected@file@percent }
-\newlabel{fig:etaVsEta}{{10}{24}{Comparison of the measured and computed $\eta -\eta $ diagrams for pairs of the modes 1-2 and 15-16 (upper row), spatial shift of measured toposes 1-2 and 15-16 (lower row).\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Comparison of the measured (PIV) and computed (CFD) squared singular values of the POD decomposition of the data from PoM1 (left) and PoM2 (right).\relax }}{24}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:singVals}{{9}{24}{Comparison of the measured (PIV) and computed (CFD) squared singular values of the POD decomposition of the data from PoM1 (left) and PoM2 (right).\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {paragraph}{Singular values}{24}{section*.14}\protected@file@percent }
 \citation{taira2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces {First mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{25}{figure.caption.16}\protected@file@percent }
-\newlabel{fig:pom1mod1}{{11}{25}{{First mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Comparison of the measured and computed $\eta -\eta $ diagrams for pairs of the modes 1-2 and 15-16 (upper row), spatial shift of measured toposes 1-2 and 15-16 (lower row).\relax }}{25}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:etaVsEta}{{10}{25}{Comparison of the measured and computed $\eta -\eta $ diagrams for pairs of the modes 1-2 and 15-16 (upper row), spatial shift of measured toposes 1-2 and 15-16 (lower row).\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces {First mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{26}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:pom1mod1}{{11}{26}{{First mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.16}{}}
 \@writefile{toc}{\contentsline {paragraph}{Mode 1}{26}{section*.17}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces {First mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{27}{figure.caption.18}\protected@file@percent }
 \newlabel{fig:pom2mod1}{{12}{27}{{First mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces {Third mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{28}{figure.caption.20}\protected@file@percent }
-\newlabel{fig:mod3}{{13}{28}{{Third mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.20}{}}
 \@writefile{toc}{\contentsline {paragraph}{Mode 3}{28}{figure.caption.20}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces {Third mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{29}{figure.caption.21}\protected@file@percent }
-\newlabel{fig:pom2mod3}{{14}{29}{{Third mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.21}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces {Fifth mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{30}{figure.caption.23}\protected@file@percent }
-\newlabel{fig:mod6}{{15}{30}{{Fifth mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.23}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces {Third mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{29}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:mod3}{{13}{29}{{Third mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces {Third mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{30}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:pom2mod3}{{14}{30}{{Third mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.21}{}}
 \@writefile{toc}{\contentsline {paragraph}{Mode 5}{30}{figure.caption.23}\protected@file@percent }
 \citation{taira2020}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces {Fifth mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{31}{figure.caption.24}\protected@file@percent }
-\newlabel{fig:pom2mod6}{{16}{31}{{Fifth mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces {Fifth mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{31}{figure.caption.23}\protected@file@percent }
+\newlabel{fig:mod6}{{15}{31}{{Fifth mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.23}{}}
 \@writefile{toc}{\contentsline {paragraph}{Mode 7}{31}{figure.caption.26}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces {Fifth mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{32}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:pom2mod6}{{16}{32}{{Fifth mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.24}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces {Seventh mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{32}{figure.caption.26}\protected@file@percent }
 \newlabel{fig:mod7}{{17}{32}{{Seventh mode, PoM1.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.26}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces {Seventh mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }}{33}{figure.caption.27}\protected@file@percent }
 \newlabel{fig:pom2mod7}{{18}{33}{{Seventh mode, PoM2.} Comparison of the a) measured and b) computed toposes, and c) the chronos spectra.\relax }{figure.caption.27}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Three-dimensional POD analysis in RoI}{33}{subsection.5.4}\protected@file@percent }
-\newlabel{sub:3DPOD}{{5.4}{33}{Three-dimensional POD analysis in RoI}{subsection.5.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces {First 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:pom1mod1}b. c) chronos energy spectrum.}\relax }}{34}{figure.caption.29}\protected@file@percent }
-\newlabel{fig:3Dmod1}{{19}{34}{{First 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:pom1mod1}b. c) chronos energy spectrum.}\relax }{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Three-dimensional POD analysis in RoI}{34}{subsection.5.4}\protected@file@percent }
+\newlabel{sub:3DPOD}{{5.4}{34}{Three-dimensional POD analysis in RoI}{subsection.5.4}{}}
 \@writefile{toc}{\contentsline {paragraph}{Mode 1}{34}{figure.caption.29}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Mode 3}{35}{figure.caption.31}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces {Third 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:mod3}b. c) chronos energy spectrum.}\relax }}{36}{figure.caption.31}\protected@file@percent }
-\newlabel{fig:3Dmod3}{{20}{36}{{Third 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:mod3}b. c) chronos energy spectrum.}\relax }{figure.caption.31}{}}
-\@writefile{toc}{\contentsline {paragraph}{Mode 5}{37}{figure.caption.33}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces {First 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:pom1mod1}b. c) chronos energy spectrum.}\relax }}{35}{figure.caption.29}\protected@file@percent }
+\newlabel{fig:3Dmod1}{{19}{35}{{First 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:pom1mod1}b. c) chronos energy spectrum.}\relax }{figure.caption.29}{}}
+\@writefile{toc}{\contentsline {paragraph}{Mode 3}{36}{figure.caption.31}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces {Third 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:mod3}b. c) chronos energy spectrum.}\relax }}{37}{figure.caption.31}\protected@file@percent }
+\newlabel{fig:3Dmod3}{{20}{37}{{Third 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:mod3}b. c) chronos energy spectrum.}\relax }{figure.caption.31}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces {Fifth 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:mod6}b. c) chronos energy spectrum.}\relax }}{38}{figure.caption.33}\protected@file@percent }
 \newlabel{fig:3Dmod6}{{21}{38}{{Fifth 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:mod6}b. c) chronos energy spectrum.}\relax }{figure.caption.33}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces {Seventh 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:mod7}b. c) chronos energy spectrum.}\relax }}{39}{figure.caption.35}\protected@file@percent }
-\newlabel{fig:3Dmod7}{{22}{39}{{Seventh 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:mod7}b. c) chronos energy spectrum.}\relax }{figure.caption.35}{}}
-\@writefile{toc}{\contentsline {paragraph}{Mode 7}{40}{figure.caption.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Partial data reconstructions}{40}{subsection.5.5}\protected@file@percent }
-\newlabel{sub:partRec}{{5.5}{40}{Partial data reconstructions}{subsection.5.5}{}}
+\@writefile{toc}{\contentsline {paragraph}{Mode 5}{39}{figure.caption.33}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Mode 7}{39}{figure.caption.35}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces {Seventh 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure\nobreakspace  {}\ref  {fig:mod7}b. c) chronos energy spectrum.}\relax }}{40}{figure.caption.35}\protected@file@percent }
+\newlabel{fig:3Dmod7}{{22}{40}{{Seventh 3D POD mode. a)} Topos {visualized via} Q-criterion contour structures in the wake behind the cylinder colored by $\omega _z$ with velocity field arrows on the red PoM1, and PoM2 depicted in green. {b) Slice through the topos in PoM1 corresponding to the data in Figure~\ref {fig:mod7}b. c) chronos energy spectrum.}\relax }{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Partial data reconstructions}{41}{subsection.5.5}\protected@file@percent }
+\newlabel{sub:partRec}{{5.5}{41}{Partial data reconstructions}{subsection.5.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Reconstruction of the full data. a) PoM1 flow field colored by the spanwise vorticity component ($\omega _{z}$). b) RoI flow field visualized via Q-criterion and colored by $\omega _{z}$.\relax }}{41}{figure.caption.37}\protected@file@percent }
 \newlabel{fig:fullRec}{{23}{41}{Reconstruction of the full data. a) PoM1 flow field colored by the spanwise vorticity component ($\omega _{z}$). b) RoI flow field visualized via Q-criterion and colored by $\omega _{z}$.\relax }{figure.caption.37}{}}
 \@writefile{toc}{\contentsline {paragraph}{Full CFD data on PoM1 and RoI}{41}{figure.caption.37}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Data reconstructions using $\ell < n$ modes}{41}{figure.caption.39}\protected@file@percent }
-\newlabel{eq:}{{15}{41}{Data reconstructions using $\ell < n$ modes}{equation.5.15}{}}
-\citation{reiss2018,reiss2021}
 \@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Reconstruction of the 2D PoM1 data utilizing a) 10, b) 100, c) 1000, and d) 3000 POD modes.\relax }}{42}{figure.caption.39}\protected@file@percent }
 \newlabel{fig:PoM1Rec}{{24}{42}{Reconstruction of the 2D PoM1 data utilizing a) 10, b) 100, c) 1000, and d) 3000 POD modes.\relax }{figure.caption.39}{}}
+\@writefile{toc}{\contentsline {paragraph}{Data reconstructions using $\ell < n$ modes}{42}{figure.caption.39}\protected@file@percent }
+\newlabel{eq:}{{15}{42}{Data reconstructions using $\ell < n$ modes}{equation.5.15}{}}
+\citation{reiss2018,reiss2021}
 \citation{williamson1996,prasad1997}
-\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Reconstruction of the full 3D data in RoI utilizing a) 2, b) 4, c) 6, and d) 8 POD modes.\relax }}{43}{figure.caption.40}\protected@file@percent }
-\newlabel{fig:RoIRec}{{25}{43}{Reconstruction of the full 3D data in RoI utilizing a) 2, b) 4, c) 6, and d) 8 POD modes.\relax }{figure.caption.40}{}}
 \citation{prasad1997}
 \citation{williamson1989}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Reconstruction of the full 3D data in RoI utilizing a) 2, b) 4, c) 6, and d) 8 POD modes.\relax }}{44}{figure.caption.40}\protected@file@percent }
+\newlabel{fig:RoIRec}{{25}{44}{Reconstruction of the full 3D data in RoI utilizing a) 2, b) 4, c) 6, and d) 8 POD modes.\relax }{figure.caption.40}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Conclusion}{45}{section.6}\protected@file@percent }
 \newlabel{sec:concl}{{6}{45}{Conclusion}{section.6}{}}
-\newlabel{sec:nomen}{{6}{46}{Nomenclature}{section*.42}{}}
+\newlabel{sec:nomen}{{6}{47}{Nomenclature}{section*.42}{}}
 \bibdata{references}
 \bibcite{williamson1996}{{1}{1996}{{Williamson}}{{}}}
 \bibcite{chu21}{{2}{2021}{{Chu et~al.}}{{Chu, Xia, Wang, Fan, and Yang}}}
-\bibcite{choi2008}{{3}{2008}{{Choi et~al.}}{{Choi, Jeon, and Kim}}}
+\bibcite{choi08}{{3}{2008}{{Choi et~al.}}{{Choi, Jeon, and Kim}}}
 \bibcite{isoz2019}{{4}{2019}{{Isoz}}{{}}}
 \bibcite{taira2020}{{5}{2020}{{Taira et~al.}}{{Taira, Hemati, Brunton, Sun, Duraisamy, Bagheri, Dawson, and Yeh}}}
 \bibcite{Pearson1901}{{6}{1901}{{Pearson}}{{}}}
@@ -259,4 +260,4 @@
 \bibcite{prasad1997}{{57}{1997}{{Prasad and Williamson}}{{}}}
 \bibcite{williamson1989}{{58}{1989}{{Williamson}}{{}}}
 \@writefile{toc}{\let\numberline\tmptocnumberline}
-\gdef \@abspage@last{54}
+\gdef \@abspage@last{55}

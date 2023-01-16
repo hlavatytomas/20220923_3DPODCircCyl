@@ -28,7 +28,7 @@
 \newblock \bibinfo{journal}{Physics of Fluids} \bibinfo{volume}{33}
   (\bibinfo{year}{2021}) \bibinfo{pages}{025106}.
 %Type = Article
-\bibitem[{Choi et~al.(2008)Choi, Jeon, and Kim}]{choi2008}
+\bibitem[{Choi et~al.(2008)Choi, Jeon, and Kim}]{choi08}
 \bibinfo{author}{H.~Choi}, \bibinfo{author}{W.-P. Jeon},
   \bibinfo{author}{J.~Kim},
 \newblock \bibinfo{title}{Control of flow over a bluff body},
