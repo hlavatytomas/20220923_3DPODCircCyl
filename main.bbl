@@ -1,5 +1,5 @@
 \providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
-\begin{thebibliography}{58}
+\begin{thebibliography}{60}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -34,6 +34,23 @@
 \newblock \bibinfo{title}{Control of flow over a bluff body},
 \newblock \bibinfo{journal}{Annual Review of Fluid Mechanics}
   \bibinfo{volume}{40} (\bibinfo{year}{2008}) \bibinfo{pages}{113--139}.
+%Type = Article
+\bibitem[{Michálek et~al.(2022)Michálek, Procházka, Uruba, and
+  Pospíšil}]{michalek22}
+\bibinfo{author}{P.~Michálek}, \bibinfo{author}{P.~Procházka},
+  \bibinfo{author}{V.~Uruba}, \bibinfo{author}{S.~Pospíšil},
+\newblock \bibinfo{title}{Influence of surface roughness on the wake structure
+  of a circular cylinder at reynolds number 5 × 103 to 12 × 103},
+\newblock \bibinfo{journal}{European Journal of Mechanics - B/Fluids}
+  \bibinfo{volume}{96} (\bibinfo{year}{2022}) \bibinfo{pages}{15--25}.
+%Type = Article
+\bibitem[{MA et~al.(2000)MA, KARAMANOS, and KARNIADAKIS}]{ma00}
+\bibinfo{author}{X.~MA}, \bibinfo{author}{G.-S. KARAMANOS},
+  \bibinfo{author}{G.~E. KARNIADAKIS},
+\newblock \bibinfo{title}{Dynamics and low-dimensionality of a turbulent near
+  wake},
+\newblock \bibinfo{journal}{Journal of Fluid Mechanics} \bibinfo{volume}{410}
+  (\bibinfo{year}{2000}) \bibinfo{pages}{29–65}.
 %Type = Article
 \bibitem[{Isoz(2019)}]{isoz2019}
 \bibinfo{author}{M.~Isoz},
